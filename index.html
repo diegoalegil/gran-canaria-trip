@@ -20,35 +20,15 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-    background:var(--bg); color:var(--txt); line-height:1.5;
-    padding-bottom:90px; overflow-x:hidden;
-  }
-  .hero{
-    position:relative; padding:54px 20px 30px; text-align:center;
-    background:
-      radial-gradient(120% 90% at 80% -10%, rgba(225,29,72,.45), transparent 60%),
-      radial-gradient(120% 90% at 0% 110%, rgba(20,184,166,.40), transparent 55%),
-      linear-gradient(160deg,#0c1c34,#081020);
-    border-bottom:1px solid var(--line); overflow:hidden;
-  }
-  .hero::after{
-    content:""; position:absolute; left:0; right:0; bottom:0; height:14px;
-    background-image:
-      linear-gradient(45deg,#fff 25%,transparent 25%),
-      linear-gradient(-45deg,#fff 25%,transparent 25%),
-      linear-gradient(45deg,transparent 75%,#fff 75%),
-      linear-gradient(-45deg,transparent 75%,#fff 75%);
-    background-size:14px 14px; background-position:0 0,0 7px,7px -7px,-7px 0;
-    background-color:#0b1322; opacity:.85;
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; background:var(--bg); color:var(--txt); line-height:1.5; padding-bottom:90px; overflow-x:hidden}
+  .hero{position:relative; padding:54px 20px 30px; text-align:center; background:radial-gradient(120% 90% at 80% -10%, rgba(225,29,72,.45), transparent 60%),radial-gradient(120% 90% at 0% 110%, rgba(20,184,166,.40), transparent 55%),linear-gradient(160deg,#0c1c34,#081020); border-bottom:1px solid var(--line); overflow:hidden}
+  .hero::after{content:""; position:absolute; left:0; right:0; bottom:0; height:14px; background-image:linear-gradient(45deg,#fff 25%,transparent 25%),linear-gradient(-45deg,#fff 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#fff 75%),linear-gradient(-45deg,transparent 75%,#fff 75%); background-size:14px 14px; background-position:0 0,0 7px,7px -7px,-7px 0; background-color:#0b1322; opacity:.85}
   .hero .tag{display:inline-block; font-size:12px; letter-spacing:3px; font-weight:700; color:var(--gold); text-transform:uppercase; margin-bottom:10px}
   .hero h1{font-size:30px; font-weight:800; letter-spacing:-.5px; line-height:1.1}
   .hero h1 .em{background:linear-gradient(90deg,var(--red),var(--gold)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
   .hero .sub{color:var(--mut); margin-top:8px; font-size:15px; font-weight:500}
-  .couplewrap{margin:16px auto 2px; max-width:330px; position:relative; z-index:1}
-  .couple{width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:18px; border:3px solid rgba(255,255,255,.85); box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .couplewrap{margin:16px auto 2px; max-width:270px; position:relative; z-index:1}
+  .couple{width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:18px; border:3px solid rgba(255,255,255,.85); box-shadow:0 12px 30px rgba(0,0,0,.5)}
   .couplecap{font-size:12px; color:var(--mut); margin-top:7px; font-weight:600}
   .count{margin:18px auto 4px; display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.06); border:1px solid var(--line); padding:8px 16px; border-radius:30px; font-weight:700; font-size:14px}
   .count b{color:var(--gold); font-size:18px}
@@ -78,12 +58,15 @@
   .card h3 .ic{font-size:20px}
   .card p{color:var(--mut); font-size:14px; margin-top:5px}
   .card .tagline{display:inline-block; margin-top:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gold)}
+  .ph{width:100%; display:block; border-radius:12px; margin-top:11px; object-fit:cover; border:1px solid var(--line); aspect-ratio:16/9}
+  .ph.v{aspect-ratio:4/5; max-height:440px}
   .btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:11px}
   .btn{display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-size:13px; font-weight:700; padding:8px 13px; border-radius:10px; background:rgba(255,255,255,.06); color:var(--txt); border:1px solid var(--line); transition:.15s}
   .btn:active{transform:scale(.96)}
   .btn.map{border-color:#2563eb55}
   .btn.call{border-color:#16a34a55}
   .btn.wa{background:#25d36622; border-color:#25d36655; color:#7ef0a8}
+  .btn.book{background:var(--accent); border-color:var(--accent); color:#fff}
   .pill{display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; background:rgba(245,179,1,.14); color:var(--gold); margin-left:auto}
   .block{background:linear-gradient(160deg,var(--surf2),var(--surf)); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:14px}
   .block h2{font-size:16px; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px}
@@ -117,20 +100,20 @@
   <h1>Cumple de <span class="em">Diego</span> &amp; Darimar</h1>
   <div class="sub">19 – 21 junio 2026 · de Tenerife en ferry 🚗</div>
   <div class="couplewrap">
-    <img class="couple" src="img/nosotros.jpg" alt="Diego y Darimar" onerror="this.closest('.couplewrap').style.display='none'">
-    <div class="couplecap">Diego &amp; Darimar 🌴</div>
+    <img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" onerror="this.closest('.couplewrap').style.display='none'">
+    <div class="couplecap">Diego &amp; la bestia 🌅🏎️</div>
   </div>
   <div class="count">⏳ Faltan <b id="cd">–</b> días</div>
   <div class="chips">
     <span class="chip">⛴️ Ferry + coche</span>
     <span class="chip">🏨 AC Iberia</span>
-    <span class="chip">🏎️ El mercho a bordo</span>
+    <span class="chip">🏎️ La bestia a bordo</span>
   </div>
 </header>
 
 <nav class="tabs" id="tabs">
   <div class="tab active" data-p="vie"><span class="dot">●</span> Viernes<span class="d">Motor + Cumple</span></div>
-  <div class="tab" data-p="sab"><span class="dot">●</span> Sábado<span class="d">Holiday World + Spa</span></div>
+  <div class="tab" data-p="sab"><span class="dot">●</span> Sábado<span class="d">Spa + Holiday World</span></div>
   <div class="tab" data-p="dom"><span class="dot">●</span> Domingo<span class="d">Mar + Vuelta</span></div>
   <div class="tab" data-p="info"><span class="dot">●</span> Info<span class="d">Datos + Compras</span></div>
 </nav>
@@ -141,18 +124,20 @@
   <section class="panel active" id="vie" style="--accent:var(--red)">
     <div class="dayhead">
       <div class="big">19</div>
-      <div><div class="t1">Viernes · Sur de la isla</div><div class="t2">🎂 Día de cumple &amp; motor 🏎️</div></div>
+      <div><div class="t1">Viernes · Sur de la isla</div><div class="t2">🎂 Cumpleañero al volante 🏎️</div></div>
     </div>
     <div class="tl">
       <div class="ev"><div class="time">11:40</div>
-        <div class="card"><h3><span class="ic">⛴️</span> Llegada en ferry</h3>
-        <p>Atracan en el Puerto de Las Palmas. Desembarcan <b>la bestia</b> y directos al sur, <b>sin paradas</b> (el tiempo va justo).</p>
+        <div class="card"><h3><span class="ic">⛴️</span> Pisan Gran Canaria</h3>
+        <p>Bajan a <b>la bestia</b> por la rampa con todo el orgullo y directos al sur. Nada de paradas para selfies, que el reloj viene apretando. 🏃</p>
+        <img class="ph" src="img/mercedes-lado.jpg" alt="El Mercedes de lado" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Las+Palmas" target="_blank">📍 Puerto</a></div></div>
       </div>
       <div class="ev"><div class="time">12:30 <span class="pill">cita confirmada</span></div>
-        <div class="card"><h3><span class="ic">🏎️</span> Experiencia Motor</h3>
-        <p><b>Circuito de Maspalomas</b> (Supercar Gran Canaria). Paquete Más Vendido: superdeportivo (Ferrari / Porsche 911) + <b>Mazda MX5, 10 vueltas</b> + Ariel Atom de copiloto.</p>
-        <span class="tagline">⚠️ Vuelta con el mercho: pendiente de Chris</span>
+        <div class="card"><h3><span class="ic">🏎️</span> El platazo del cumple</h3>
+        <p>Un <b>Ferrari o un Porsche 911</b>, <b>10 vueltas de Mazda MX5</b> y de copiloto en el Ariel Atom. Que no te tiemble el pie derecho. 🔥</p>
+        <img class="ph" src="img/mercedes-frente.jpg" alt="El Mercedes de frente" loading="lazy">
+        <span class="tagline">✅ Chris te guarda margen: si llegas a las 12:45, te esperan</span>
         <div class="btns">
           <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Circuito+Maspalomas+El+Berriel" target="_blank">📍 Circuito</a>
           <a class="btn call" href="tel:+34672447920">📞 Chris</a>
@@ -160,29 +145,36 @@
         </div></div>
       </div>
       <div class="ev"><div class="time">14:30</div>
-        <div class="card"><h3><span class="ic">🍔</span> Comida rápida</h3>
-        <p>Algo práctico cerca de Maspalomas. Sin perder tiempo, que la tarde es suya.</p></div>
+        <div class="card"><h3><span class="ic">🍔</span> Recarga rápida</h3>
+        <p>Algo de comer cerca de Maspalomas, sin enrollarse. Que la tarde viene cargada de arena y atardecer.</p></div>
       </div>
       <div class="ev"><div class="time">15:30</div>
-        <div class="card"><h3><span class="ic">🏜️</span> Dunas + Playa del Inglés</h3>
-        <p>Están <b>al lado del circuito</b>. Paseo por las Dunas de Maspalomas y <b>atardecer</b> de postal. Aprovechen que ya están aquí.</p>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Dunas+de+Maspalomas" target="_blank">📍 Dunas</a></div></div>
+        <div class="card"><h3><span class="ic">🏖️</span> Dunas + Playa del Inglés</h3>
+        <p>Las dunas están aquí al lado del circuito. Atardecer de portada, baño y arena en sitios que ni se imaginan. 😏 Como en la foto, pero en grande.</p>
+        <img class="ph" src="img/playa.jpg" alt="Diego y Darimar en la playa" loading="lazy">
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Playa+del+Ingles+Maspalomas" target="_blank">📍 Playa del Inglés</a></div></div>
       </div>
       <div class="ev"><div class="time">18:30</div>
-        <div class="card"><h3><span class="ic">🏨</span> Check-in hotel</h3>
-        <p>Suben a Las Palmas (~50 min) y entran al <b>AC Hotel Iberia by Marriott</b>. A ducharse y arreglarse para la noche.</p>
+        <div class="card"><h3><span class="ic">🏨</span> Check-in y a brillar</h3>
+        <p>Suben a Las Palmas (~50 min) y caen en el <b>AC Iberia</b>. Ducha, ropa limpia y a ponerse guapos para la cena grande.</p>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=AC+Hotel+Iberia+Las+Palmas+Marriott" target="_blank">📍 Hotel</a></div></div>
       </div>
+      <div class="ev"><div class="time">19:30</div>
+        <div class="card"><h3><span class="ic">🛍️</span> Alisios (si queda pila)</h3>
+        <p>El centro comercial <b>más grande</b> de la isla, a 15 min. Si tras el subidón de motor el cuerpo aún responde, una vuelta de compras y a cenar.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a></div></div>
+      </div>
       <div class="ev"><div class="time">21:00</div>
-        <div class="card"><h3><span class="ic">🎂</span> Cena de cumple</h3>
-        <p>Cena especial en <b>El Churrasco</b> — carne premium (Angus, Rubia Gallega), ambiente íntimo. El broche del día. <b>Reserven con antelación.</b></p>
-        <span class="tagline">🥩 Sorpresa romántica</span>
+        <div class="card"><h3><span class="ic">🎂</span> La cena del cumpleañero</h3>
+        <p>Carne premium en <b>El Churrasco</b> (Angus, Rubia Gallega) y ambiente para brindar a gusto. Detalle de flores para Dari y noche redonda. Reserven, que ese sitio vuela.</p>
+        <img class="ph v" src="img/dari-flores.jpg" alt="Darimar con flores" loading="lazy">
+        <span class="tagline">🌹 Sorpresa romántica</span>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=El+Churrasco+Las+Palmas" target="_blank">📍 El Churrasco</a></div></div>
       </div>
       <div class="ev"><div class="time">23:00</div>
-        <div class="card"><h3><span class="ic">🛍️</span> Copa + Las Arenas</h3>
-        <p>Copa y paseo por <b>Las Canteras</b>. Justo ahí tienen el centro comercial <b>Las Arenas</b> (frente a la playa, junto al Auditorio): tiendas, terrazas y buen ambiente para rematar la noche.</p>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a></div></div>
+        <div class="card"><h3><span class="ic">🍸</span> Copa con los pies en la arena</h3>
+        <p>Última copa paseando <b>Las Canteras</b>, casi tocando el agua. Mimos incluidos. Cierre de lujo para el día grande. 🌙</p>
+        <img class="ph" src="img/beso.jpg" alt="Diego y Darimar" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -191,36 +183,48 @@
   <section class="panel" id="sab" style="--accent:var(--teal)">
     <div class="dayhead">
       <div class="big">20</div>
-      <div><div class="t1">Sábado · Sur de la isla</div><div class="t2">🎢 Holiday World &amp; spa 💆</div></div>
+      <div><div class="t1">Sábado · Mimos y feria</div><div class="t2">💆 Spa de día, parque de noche 🎢</div></div>
     </div>
     <div class="tl">
       <div class="ev"><div class="time">09:30</div>
-        <div class="card"><h3><span class="ic">🚗</span> Bajan al sur</h3>
-        <p>Con <b>el mercho</b> hacia Maspalomas (~45 min). Día de adrenalina del bueno.</p></div>
+        <div class="card"><h3><span class="ic">🧼</span> Ritual sagrado: lavar la bestia</h3>
+        <p>Lo primero, lo importante: dejar el Mercedes <b>como un espejo</b>. Diego la lava siempre, y hacerlo en una gasolinera canaria le hacía ilusión. La bestia brillando para presumir por toda la isla. ✨</p>
+        <img class="ph v" src="img/lavando.jpg" alt="Lavando el Mercedes en una gasolinera" loading="lazy">
+        <span class="tagline">💦 Tradición innegociable</span></div>
       </div>
-      <div class="ev"><div class="time">10:30 <span class="pill">entradas</span></div>
-        <div class="card"><h3><span class="ic">🎢</span> Holiday World Maspalomas</h3>
-        <p>El <b>único parque de atracciones de Canarias</b>: montañas rusas, noria gigante, atracciones para todos. Diversión a tope toda la mañana. <b>Compren las entradas online</b> (suele salir más barato).</p>
-        <span class="tagline">🎟️ El cambio que pidió Darimar</span>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Holiday+World+Maspalomas" target="_blank">📍 Holiday World</a></div></div>
-      </div>
-      <div class="ev"><div class="time">14:30</div>
-        <div class="card"><h3><span class="ic">🍕</span> Comida</h3>
-        <p>En el parque o de camino de vuelta. Recargar pilas para la tarde.</p></div>
-      </div>
-      <div class="ev"><div class="time">16:30</div>
+      <div class="ev"><div class="time">10:30 <span class="pill">reservar</span></div>
         <div class="card"><h3><span class="ic">💆</span> Spa en pareja</h3>
-        <p>De vuelta en la ciudad, relax merecido: circuito + masaje en pareja en el <b>Hotel Reina Isabel</b> (frente a Las Canteras). <b>Reserven cabina doble.</b></p>
-        <span class="tagline">💑 Detalle para los dos</span>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Hotel+Reina+Isabel+Las+Palmas+spa" target="_blank">📍 Spa</a></div></div>
+        <p>A deshacer los nudos del día de motor: masaje en pareja, jacuzzi y sauna en el <b>Bull Reina Isabel</b>, primera línea de Las Canteras. Lujo del bueno. <b>Reserven cabina doble.</b></p>
+        <img class="ph" src="img/dari.jpg" alt="Darimar" loading="lazy">
+        <span class="tagline">💑 Modo relax activado</span>
+        <div class="btns">
+          <a class="btn book" href="https://www.bullhotels.com/es/bull-reina-isabel-and-spa/" target="_blank">🛎️ Reservar spa</a>
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Hotel+Bull+Reina+Isabel+Spa+Las+Palmas" target="_blank">📍 Mapa</a>
+        </div></div>
+      </div>
+      <div class="ev"><div class="time">12:30</div>
+        <div class="card"><h3><span class="ic">🛍️</span> Las Arenas, al ladito</h3>
+        <p>Saliendo del spa lo tienen enfrente: <b>Las Arenas</b>, frente a la playa y junto al Auditorio. Tiendas, terrazas con vistas al mar y un bocado. 2x1 en relax y compras.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a></div></div>
+      </div>
+      <div class="ev"><div class="time">15:00</div>
+        <div class="card"><h3><span class="ic">🚗</span> Otra vez al sur</h3>
+        <p>De vuelta al volante de <b>la bestia</b>, rumbo Maspalomas. El trayecto son unos <b>45 minutos</b> de autovía: pongan buena música y a disfrutar la carretera. 🎶</p>
+        <img class="ph" src="img/conduciendo.jpg" alt="Diego conduciendo" loading="lazy"></div>
+      </div>
+      <div class="ev"><div class="time">16:00 <span class="pill">entradas</span></div>
+        <div class="card"><h3><span class="ic">🎢</span> Holiday World Maspalomas</h3>
+        <p>El <b>único parque de atracciones de Canarias</b>: abre a las 16:00 y la lía hasta pasada la medianoche. Montañas rusas, noria gigante y mil lucecitas de feria. <b>El cambio que pidió Darimar</b>, y de los buenos. Entrada ~13€, mejor online.</p>
+        <span class="tagline">🎟️ Ojo: solo abre por la tarde-noche</span>
+        <div class="btns">
+          <a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank">🎟️ Entradas</a>
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Holiday+World+Maspalomas" target="_blank">📍 Mapa</a>
+        </div></div>
       </div>
       <div class="ev"><div class="time">21:00</div>
-        <div class="card"><h3><span class="ic">🍔</span> Cena + Alisios</h3>
-        <p>Cena de burger premium (<b>All or Nothing</b> / <b>The Winner</b>) o pizza (<b>Napoli Mia</b>). Si les quedan ganas de compras, <b>Alisios</b> es el centro comercial más grande de la ciudad.</p>
-        <div class="btns">
-          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=All+or+Nothing+Burger+Las+Palmas" target="_blank">📍 Burger</a>
-          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a>
-        </div></div>
+        <div class="card"><h3><span class="ic">🍔</span> Cena de premio</h3>
+        <p>En el parque o de vuelta: burger premium (<b>All or Nothing</b> / <b>The Winner</b>) o pizza napolitana (<b>Napoli Mia</b>). Combustible para aguantar la noria. 🍕</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=All+or+Nothing+Burger+Las+Palmas" target="_blank">📍 Burger</a></div></div>
       </div>
     </div>
   </section>
@@ -229,37 +233,42 @@
   <section class="panel" id="dom" style="--accent:var(--cyan)">
     <div class="dayhead">
       <div class="big">21</div>
-      <div><div class="t1">Domingo · Suroeste</div><div class="t2">🐬 Mar, compras &amp; vuelta ⛴️</div></div>
+      <div><div class="t1">Domingo · Suroeste</div><div class="t2">🐬 Delfines, compras &amp; vuelta ⛴️</div></div>
     </div>
     <div class="tl">
       <div class="ev"><div class="time">08:30</div>
-        <div class="card"><h3><span class="ic">🧳</span> Check-out</h3>
-        <p>Salida del hotel <b>antes de las 12:00</b>, pero madrugan: <b>maletas al coche</b> y a por el último planazo.</p></div>
+        <div class="card"><h3><span class="ic">🧳</span> Madrugón con premio</h3>
+        <p>Check-out antes de las 12:00, pero hoy se madruga: <b>maletas a la bestia</b> y a exprimir las últimas horas como esponjas.</p></div>
+      </div>
+      <div class="ev"><div class="time">09:00</div>
+        <div class="card"><h3><span class="ic">🛣️</span> Rumbo al suroeste</h3>
+        <p>Una hora larga de carretera hasta <b>Puerto Rico</b> (~1h). Las mejores vistas de costa de la isla desde el asiento del conductor. 🌊</p>
+        <img class="ph v" src="img/conduciendo2.jpg" alt="Conduciendo el Mercedes por la carretera" loading="lazy"></div>
       </div>
       <div class="ev"><div class="time">10:30 <span class="pill">reservar</span></div>
         <div class="card"><h3><span class="ic">🐬</span> Catamarán + delfines</h3>
-        <p>Salida en barco desde <b>Puerto Rico / Mogán</b> (~2h). Avistamiento de delfines <b>garantizado</b>. Baño en alta mar.</p>
+        <p>Barco desde <b>Puerto Rico / Mogán</b> (~2h), sol, baño en alta mar y delfines <b>casi garantizados</b>. Material de presumir en redes asegurado.</p>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+Rico+Gran+Canaria+puerto" target="_blank">📍 Puerto Rico</a></div></div>
       </div>
       <div class="ev"><div class="time">13:00</div>
         <div class="card"><h3><span class="ic">🚤</span> Puerto de Mogán</h3>
-        <p>La <b>"pequeña Venecia"</b> de Canarias: canales, puentes y terrazas. Comida y paseo tranquilo.</p>
+        <p>La <b>"pequeña Venecia"</b> canaria: canales, puentes y terracitas. Comer casi con los pies sobre el agua. Pueblo de cuento.</p>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Mogan" target="_blank">📍 Mogán</a></div></div>
       </div>
       <div class="ev"><div class="time">17:00</div>
-        <div class="card"><h3><span class="ic">🛍️</span> Centro Comercial El Muelle</h3>
-        <p>De vuelta en Las Palmas, última vuelta de compras en <b>El Muelle</b>, <b>pegado al puerto</b> (al lado del acuario Poema del Mar y de la estación marítima). Lo tienen a un paso del ferry.</p>
-        <span class="tagline">🛒 De camino al barco</span>
+        <div class="card"><h3><span class="ic">🛍️</span> El Muelle, última misión</h3>
+        <p>De vuelta en Las Palmas, vuelta final de compras en <b>El Muelle</b>, <b>pegado al puerto</b> (al lado del acuario Poema del Mar). Tan cerca del ferry que es casi de camino.</p>
+        <span class="tagline">🛒 A un paso del barco</span>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+El+Muelle+Las+Palmas" target="_blank">📍 El Muelle</a></div></div>
       </div>
       <div class="ev"><div class="time">18:30</div>
-        <div class="card"><h3><span class="ic">⛴️</span> Embarque</h3>
-        <p>En el Puerto de Las Palmas <b>1h30 antes</b> para embarcar el coche con calma.</p>
+        <div class="card"><h3><span class="ic">⛴️</span> Al barco sin carreras</h3>
+        <p>En el puerto <b>1h30 antes</b> para meter el coche con calma. Nada de llegar derrapando al embarque.</p>
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Estacion+Maritima+Las+Palmas" target="_blank">📍 Estación marítima</a></div></div>
       </div>
       <div class="ev"><div class="time">20:00</div>
-        <div class="card"><h3><span class="ic">🏁</span> Ferry a casa</h3>
-        <p>Zarpan de vuelta a Tenerife. Finde de cumple <b>de los de recordar</b>. 🎉</p></div>
+        <div class="card"><h3><span class="ic">🏁</span> Vuelta a casa</h3>
+        <p>Zarpan a Tenerife con el depósito de recuerdos a tope. Cumpleaños de matrícula de honor. 🎉</p></div>
       </div>
     </div>
   </section>
@@ -291,15 +300,25 @@
     </div>
 
     <div class="block">
-      <h2>🛍️ Centros comerciales grandes</h2>
-      <div class="kv"><span class="k">El Muelle</span><span class="v">Junto al puerto · dom</span></div>
-      <div class="kv"><span class="k">Las Arenas</span><span class="v">Frente a Las Canteras · vie</span></div>
-      <div class="kv"><span class="k">Alisios</span><span class="v">El más grande · sáb</span></div>
-      <div class="btns" style="margin-top:12px">
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+El+Muelle+Las+Palmas" target="_blank">📍 El Muelle</a>
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a>
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a>
+      <h2>🎟️ Reservas con link</h2>
+      <div class="btns">
+        <a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank">🎢 Entradas Holiday World</a>
+        <a class="btn book" href="https://www.bullhotels.com/es/bull-reina-isabel-and-spa/" target="_blank">💆 Reservar spa</a>
       </div>
+      <p class="note">Holiday World abre <b>solo de tarde-noche</b> (16:00–23:30 los sábados). El spa, mejor reservar cabina doble con antelación.</p>
+    </div>
+
+    <div class="block">
+      <h2>🛍️ Centros comerciales grandes</h2>
+      <div class="kv"><span class="k">Alisios</span><span class="v">El más grande · vie</span></div>
+      <div class="kv"><span class="k">Las Arenas</span><span class="v">Frente a Las Canteras · sáb</span></div>
+      <div class="kv"><span class="k">El Muelle</span><span class="v">Junto al puerto · dom</span></div>
+      <div class="btns" style="margin-top:12px">
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+El+Muelle+Las+Palmas" target="_blank">📍 El Muelle</a>
+      </div>
+      <p class="note">Ojo al horario: las tiendas suelen cerrar sobre las <b>22:00</b>. Nada de compras de madrugada. 😉</p>
     </div>
 
     <div class="block">
@@ -307,24 +326,23 @@
       <div class="btns">
         <a class="btn call" href="tel:+34672447920">🏎️ Chris (Supercar)</a>
         <a class="btn wa" href="https://wa.me/34672447920" target="_blank">💬 WhatsApp Chris</a>
-        <a class="btn call" href="tel:+34928563101">📞 Circuito (el mercho)</a>
+        <a class="btn call" href="tel:+34928563101">📞 Circuito (la bestia)</a>
         <a class="btn call" href="tel:+34928361133">🏨 Hotel</a>
       </div>
-      <p class="note">El <b>928 563 101</b> es del Circuito de Maspalomas (L-V 9-18h) para confirmar si admiten <b>el mercho</b> a tanda el viernes y a qué precio.</p>
+      <p class="note">El <b>928 563 101</b> es del Circuito de Maspalomas (L-V 9-18h) para confirmar si admiten <b>la bestia</b> a tanda el viernes y a qué precio.</p>
     </div>
 
     <div class="block">
       <h2>✅ Reservas pendientes</h2>
-      <label class="check"><input type="checkbox" data-k="r1"><span>Confirmar vuelta con el mercho (Chris / Circuito)</span></label>
+      <label class="check"><input type="checkbox" data-k="r1"><span>Confirmar vuelta con la bestia (Chris / Circuito)</span></label>
       <label class="check"><input type="checkbox" data-k="r2"><span>Reservar cena de cumple — El Churrasco (vie)</span></label>
       <label class="check"><input type="checkbox" data-k="r6"><span>Comprar entradas Holiday World (sáb)</span></label>
       <label class="check"><input type="checkbox" data-k="r3"><span>Reservar spa en pareja — cabina doble (sáb)</span></label>
       <label class="check"><input type="checkbox" data-k="r4"><span>Reservar catamarán de delfines (dom)</span></label>
-      <label class="check"><input type="checkbox" data-k="r5"><span>Avisar a Chris de la hora del ferry (11:40)</span></label>
     </div>
 
     <div class="block">
-      <h2>🏁 Checklist motor (el mercho en pista)</h2>
+      <h2>🏁 Checklist motor (la bestia en pista)</h2>
       <label class="check"><input type="checkbox" data-k="m1"><span>Casco homologado (o alquilarlo allí)</span></label>
       <label class="check"><input type="checkbox" data-k="m2"><span>Frenos y neumáticos en buen estado</span></label>
       <label class="check"><input type="checkbox" data-k="m3"><span>Niveles OK y sin fugas de líquidos</span></label>
@@ -337,8 +355,8 @@
       <div class="kv"><span class="k">Ferry + coche</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
       <div class="kv"><span class="k">Hotel (2 noches)</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
       <div class="kv"><span class="k">Motor (Más Vendido)</span><span class="v">289 €</span></div>
-      <div class="kv"><span class="k">El mercho en pista</span><span class="v">~50 € (a confirmar)</span></div>
-      <div class="kv"><span class="k">Holiday World (2 pax)</span><span class="v">~60-80 €</span></div>
+      <div class="kv"><span class="k">La bestia en pista</span><span class="v">~50 € (a confirmar)</span></div>
+      <div class="kv"><span class="k">Holiday World (2 pax)</span><span class="v">~26 €</span></div>
       <div class="kv"><span class="k">Spa en pareja</span><span class="v">~80-120 €</span></div>
       <div class="kv"><span class="k">Catamarán (2 pax)</span><span class="v">~60 €</span></div>
       <div class="kv"><span class="k">Comidas + compras</span><span class="v">variable</span></div>
