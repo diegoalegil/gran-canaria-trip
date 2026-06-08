@@ -30,7 +30,8 @@
   .hero h1 .em{color:#f06d5f;-webkit-text-fill-color:currentColor}
   .hero .sub{color:var(--mut);margin-top:8px;font-size:15px;font-weight:650}
   .couplewrap{margin:16px auto 0;max-width:min(268px,74vw);position:relative;z-index:1}
-  .couple{width:100%;display:block;aspect-ratio:4/5;max-height:330px;object-fit:cover;border-radius:14px;border:2px solid rgba(243,240,232,.78);box-shadow:var(--shadow)}
+  .coupleframe{position:relative;overflow:hidden;isolation:isolate;width:100%;aspect-ratio:4/5;max-height:330px;border-radius:14px;border:2px solid rgba(243,240,232,.78);background:#07111c;box-shadow:var(--shadow)}
+  .couple{position:relative;z-index:2;width:100%;height:100%;display:block;object-fit:contain;object-position:center;background:transparent}
   .couplecap{font-size:12px;color:var(--mut);margin-top:7px;font-weight:650}
   .count{appearance:none;margin:16px auto 4px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;background:#17232c;border:1px solid var(--line);padding:8px 15px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;user-select:none;transition:background-color .16s ease,border-color .16s ease,transform .16s ease}
   .count:hover{background:#1d2b34;border-color:#4a6370}
@@ -64,19 +65,22 @@
   .card h3 .ic{font-size:20px;line-height:1}
   .card p{color:var(--mut);font-size:14px;margin-top:6px}
   .card .tagline{display:inline-block;margin-top:9px;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:var(--gold)}
-  .ph{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;object-position:center;border-radius:10px;margin-top:11px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(243,240,232,.07),rgba(77,168,197,.09)),repeating-linear-gradient(135deg,rgba(255,255,255,.026) 0 1px,transparent 1px 12px),#0e151b}
+  .ph{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;object-position:center;border-radius:10px;margin-top:11px;border:1px solid var(--line);background:#07111c}
   .ph.fit-square{aspect-ratio:1/1}
-  .phwrap{position:relative;margin-top:11px}.phwrap .ph{margin-top:0}
-  .ph.race{border:2px solid var(--red)}
-  .race-badge{position:absolute;top:10px;left:10px;background:rgba(217,75,75,.94);color:#fff;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.05em;box-shadow:0 2px 8px rgba(0,0,0,.32);z-index:2}
-  .heart-frame{border:2px solid var(--pink)!important}
-  .sun-frame{border:2px solid var(--gold)!important}
-  .spa-frame,.wave-frame{border:2px solid var(--cyan)!important}
+  .photo-frame,.phwrap,.shinewrap{position:relative;overflow:hidden;isolation:isolate;margin-top:11px;aspect-ratio:16/10;border-radius:10px;border:1px solid var(--line);background:#07111c}
+  .photo-frame.fit-square{aspect-ratio:1/1}
+  .photo-frame.has-blur-bg::before,.coupleframe.has-blur-bg::before{content:"";position:absolute;inset:-30px;background-image:var(--photo-bg);background-size:cover;background-position:center;filter:blur(26px) saturate(1.22) brightness(.66);transform:scale(1.1);opacity:.95;z-index:0}
+  .photo-frame.has-blur-bg::after,.coupleframe.has-blur-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.1),transparent 42%),linear-gradient(180deg,rgba(5,10,18,.1),rgba(5,10,18,.38));pointer-events:none;z-index:1}
+  .photo-frame>.ph,.phwrap>.ph,.shinewrap>.ph{position:relative;z-index:2;width:100%;height:100%;margin:0;border:0!important;border-radius:0;aspect-ratio:auto;background:transparent}
+  .photo-frame.race{border:2px solid var(--red)}
+  .race-badge{position:absolute;top:10px;left:10px;background:rgba(217,75,75,.94);color:#fff;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.05em;box-shadow:0 2px 8px rgba(0,0,0,.32);z-index:4}
+  .photo-frame.heart-frame{border:2px solid var(--pink)}
+  .photo-frame.sun-frame{border:2px solid var(--gold)}
+  .photo-frame.spa-frame,.photo-frame.wave-frame{border:2px solid var(--cyan)}
   .hearts,.suns,.bubbles{display:none}
-  .shinewrap{position:relative;overflow:hidden;border-radius:10px;margin-top:11px;border:1px solid var(--line)}
-  .shinewrap .ph{margin-top:0;border:0;border-radius:0}
   .shinewrap::after{display:none}
-  .shine-badge{position:absolute;top:10px;left:10px;background:rgba(77,168,197,.94);color:#08161b;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.02em;z-index:3}
+  .shinewrap.has-blur-bg::after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,18,.08),rgba(5,10,18,.32));pointer-events:none;z-index:1}
+  .shine-badge{position:absolute;top:10px;left:10px;background:rgba(77,168,197,.94);color:#08161b;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.02em;z-index:4}
   .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;text-decoration:none;font-size:13px;font-weight:800;padding:9px 12px;border-radius:9px;background:#17232c;color:var(--txt);border:1px solid var(--line);transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
   .btn:hover{background:#1f3039;border-color:#526a76}
@@ -123,7 +127,7 @@
   .install button{border:1px solid transparent;cursor:pointer;font-weight:850;font-size:13px;padding:9px 13px;border-radius:9px;background:var(--accent);color:#fff}
   .install .close{background:transparent;color:var(--mut);padding:7px 9px;border-color:transparent}
   @media (min-width:760px){.hero{padding-top:34px}.tabs{justify-content:center}.wrap{padding-top:24px}.card,.block{padding:17px}}
-  @media (max-width:520px){body{padding-bottom:76px}.hero{padding-top:20px;padding-bottom:16px}.hero .tag{max-width:21rem;line-height:1.35}.hero h1{font-size:28px}.couplewrap{max-width:min(224px,62vw);margin-top:12px}.couple{max-height:268px}.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-width:330px;margin-inline:auto}.chip{min-width:0;text-align:center}.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;overflow:visible;padding:7px 8px}.tab{min-width:0;text-align:center;padding:8px 4px;font-size:12px;border-radius:9px}.tab .dot{display:block;font-size:10px;line-height:1;margin-bottom:2px}.tab .d{display:none}.wrap{padding-inline:14px}.tl{padding-left:30px}.ev::before{left:-25px}.gline{align-items:stretch;flex-direction:column;gap:8px}.gwrap{align-self:flex-start}.kv{flex-direction:column;gap:3px}.kv .v{text-align:left}.btn{flex:1 1 auto}.install{align-items:flex-start}.install .ix{display:none}}
+  @media (max-width:520px){body{padding-bottom:76px}.hero{padding-top:20px;padding-bottom:16px}.hero .tag{max-width:21rem;line-height:1.35}.hero h1{font-size:28px}.couplewrap{max-width:min(224px,62vw);margin-top:12px}.coupleframe{max-height:268px}.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-width:330px;margin-inline:auto}.chip{min-width:0;text-align:center}.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;overflow:visible;padding:7px 8px}.tab{min-width:0;text-align:center;padding:8px 4px;font-size:12px;border-radius:9px}.tab .dot{display:block;font-size:10px;line-height:1;margin-bottom:2px}.tab .d{display:none}.wrap{padding-inline:14px}.tl{padding-left:30px}.ev::before{left:-25px}.gline{align-items:stretch;flex-direction:column;gap:8px}.gwrap{align-self:flex-start}.kv{flex-direction:column;gap:3px}.kv .v{text-align:left}.btn{flex:1 1 auto}.install{align-items:flex-start}.install .ix{display:none}}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -135,7 +139,7 @@
   <h1>Cumple de <span class="em">Diego</span> 🎂</h1>
   <div class="sub">19 – 21 junio 2026 · de Tenerife en ferry 🚗</div>
   <div class="couplewrap">
-    <img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" onerror="this.closest('.couplewrap').style.display='none'">
+    <div class="coupleframe"><img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" onerror="this.closest('.couplewrap').style.display='none'"></div>
     <div class="couplecap">Diego &amp; la bestia 🌅🏎️</div>
   </div>
   <button class="count" id="count" type="button" aria-label="Lanzar confeti de cumpleaños">⏳ Faltan <b id="cd">–</b> días</button>
@@ -329,6 +333,36 @@
 <script>
   const tabs=[...document.querySelectorAll('.tab')], panels=[...document.querySelectorAll('.panel')];
   const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function cssPhotoUrl(src){
+    return `url("${String(src).replace(/\\/g,'\\\\').replace(/"/g,'\\"')}")`;
+  }
+  function setPhotoBg(frame,img){
+    const src=img.currentSrc||img.src||img.getAttribute('src');
+    if(!src)return;
+    frame.style.setProperty('--photo-bg',cssPhotoUrl(src));
+    frame.classList.add('has-blur-bg');
+  }
+  function setupPhotoFrames(){
+    document.querySelectorAll('img.ph').forEach(img=>{
+      let frame=img.closest('.photo-frame,.phwrap,.shinewrap');
+      if(!frame){
+        frame=document.createElement('div');
+        frame.className='photo-frame';
+        img.before(frame);
+        frame.appendChild(img);
+      }else{
+        frame.classList.add('photo-frame');
+      }
+      ['fit-square','race','heart-frame','sun-frame','spa-frame','wave-frame'].forEach(c=>{if(img.classList.contains(c))frame.classList.add(c);});
+      setPhotoBg(frame,img);
+      img.addEventListener('load',()=>setPhotoBg(frame,img));
+    });
+    document.querySelectorAll('.coupleframe>.couple').forEach(img=>{
+      const frame=img.closest('.coupleframe');
+      setPhotoBg(frame,img);
+      img.addEventListener('load',()=>setPhotoBg(frame,img));
+    });
+  }
   function warmPanelImages(panel){
     panel.querySelectorAll('img[loading="lazy"]').forEach(img=>{img.loading='eager';if(!img.currentSrc)img.src=img.getAttribute('src');});
   }
@@ -418,6 +452,7 @@
   document.getElementById('installbtn').addEventListener('click',async()=>{if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');}});
   document.getElementById('installclose').addEventListener('click',()=>{banner.classList.remove('show');localStorage.setItem('gctrip_noinstall','1');});
   if(isIOS&&!standalone&&localStorage.getItem('gctrip_noinstall')!=='1'){document.getElementById('installbtn').style.display='none';document.getElementById('installtxt').innerHTML='Pulsa <b>Compartir</b> ▵ y "Añadir a pantalla de inicio".';banner.classList.add('show');}
+  setupPhotoFrames();
   warmPanelImages(document.querySelector('.panel.active'));
   animatePanel(document.querySelector('.panel.active'));
   if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
