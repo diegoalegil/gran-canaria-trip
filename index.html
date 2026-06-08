@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cumple en Gran Canaria · Diego & Darimar</title>
+<meta name="description" content="Itinerario del finde de cumple en Gran Canaria, 19-21 junio 2026.">
+<meta name="theme-color" content="#0a1628">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Gran Canaria">
+<style>
+  :root{
+    --bg:#081020; --bg2:#0a1628; --surf:#0f2138; --surf2:#122a44;
+    --txt:#e8eef5; --mut:#9fb3c8; --line:#1e3a5c;
+    --red:#e11d48; --teal:#14b8a6; --cyan:#22d3ee; --gold:#f5b301;
+    --accent:var(--red);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    background:var(--bg); color:var(--txt); line-height:1.5;
+    padding-bottom:90px; overflow-x:hidden;
+  }
+  /* HEADER */
+  .hero{
+    position:relative; padding:54px 20px 30px; text-align:center;
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(225,29,72,.45), transparent 60%),
+      radial-gradient(120% 90% at 0% 110%, rgba(20,184,166,.40), transparent 55%),
+      linear-gradient(160deg,#0c1c34,#081020);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:14px;
+    background-image:
+      linear-gradient(45deg,#fff 25%,transparent 25%),
+      linear-gradient(-45deg,#fff 25%,transparent 25%),
+      linear-gradient(45deg,transparent 75%,#fff 75%),
+      linear-gradient(-45deg,transparent 75%,#fff 75%);
+    background-size:14px 14px; background-position:0 0,0 7px,7px -7px,-7px 0;
+    background-color:#0b1322; opacity:.85;
+  }
+  .hero .tag{
+    display:inline-block; font-size:12px; letter-spacing:3px; font-weight:700;
+    color:var(--gold); text-transform:uppercase; margin-bottom:10px;
+  }
+  .hero h1{font-size:30px; font-weight:800; letter-spacing:-.5px; line-height:1.1}
+  .hero h1 .em{
+    background:linear-gradient(90deg,var(--red),var(--gold));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .hero .sub{color:var(--mut); margin-top:8px; font-size:15px; font-weight:500}
+  .couplewrap{margin:16px auto 2px; max-width:330px; position:relative; z-index:1}
+  .couple{width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:18px; border:3px solid rgba(255,255,255,.85); box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .couplecap{font-size:12px; color:var(--mut); margin-top:7px; font-weight:600}
+  .count{
+    margin:18px auto 4px; display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.06); border:1px solid var(--line);
+    padding:8px 16px; border-radius:30px; font-weight:700; font-size:14px;
+  }
+  .count b{color:var(--gold); font-size:18px}
+  .chips{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:16px}
+  .chip{
+    font-size:12px; font-weight:600; color:var(--mut);
+    background:rgba(255,255,255,.05); border:1px solid var(--line);
+    padding:6px 12px; border-radius:20px;
+  }
+  /* TABS */
+  .tabs{
+    position:sticky; top:0; z-index:50; display:flex; gap:6px;
+    padding:10px 12px; background:rgba(8,16,32,.92);
+    backdrop-filter:blur(12px); border-bottom:1px solid var(--line);
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:1 0 auto; min-width:78px; text-align:center; cursor:pointer;
+    padding:9px 12px; border-radius:12px; font-weight:700; font-size:13px;
+    color:var(--mut); background:var(--surf); border:1px solid transparent;
+    transition:.18s; white-space:nowrap;
+  }
+  .tab .d{display:block; font-size:11px; font-weight:600; opacity:.7; margin-top:1px}
+  .tab.active{color:#fff; background:linear-gradient(160deg,var(--surf2),var(--surf)); border-color:var(--accent)}
+  .tab.active .dot{color:var(--accent)}
+  /* PANELS */
+  .wrap{max-width:680px; margin:0 auto; padding:18px 16px}
+  .panel{display:none; animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .dayhead{display:flex; align-items:center; gap:12px; margin:6px 2px 20px}
+  .dayhead .big{font-size:40px; font-weight:800; line-height:1; color:var(--accent)}
+  .dayhead .t1{font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--mut); font-weight:700}
+  .dayhead .t2{font-size:20px; font-weight:800; letter-spacing:-.3px}
+  /* TIMELINE */
+  .tl{position:relative; padding-left:38px}
+  .tl::before{content:""; position:absolute; left:13px; top:8px; bottom:8px; width:2px; background:linear-gradient(var(--accent),transparent)}
+  .ev{position:relative; margin-bottom:16px}
+  .ev::before{
+    content:""; position:absolute; left:-31px; top:6px; width:14px; height:14px;
+    border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(225,29,72,.18);
+  }
+  .ev .time{font-size:12px; font-weight:800; color:var(--accent); letter-spacing:.5px}
+  .card{
+    background:linear-gradient(160deg,var(--surf2),var(--surf));
+    border:1px solid var(--line); border-radius:16px; padding:14px 15px; margin-top:6px;
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .card h3{font-size:16px; font-weight:800; display:flex; align-items:center; gap:8px}
+  .card h3 .ic{font-size:20px}
+  .card p{color:var(--mut); font-size:14px; margin-top:5px}
+  .card .tagline{display:inline-block; margin-top:8px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--gold)}
+  .btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:11px}
+  .btn{
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    font-size:13px; font-weight:700; padding:8px 13px; border-radius:10px;
+    background:rgba(255,255,255,.06); color:var(--txt); border:1px solid var(--line);
+    transition:.15s;
+  }
+  .btn:active{transform:scale(.96)}
+  .btn.map{border-color:#2563eb55}
+  .btn.call{border-color:#16a34a55}
+  .btn.wa{background:#25d36622; border-color:#25d36655; color:#7ef0a8}
+  .btn.book{background:var(--accent); border-color:var(--accent); color:#fff}
+  .pill{display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; background:rgba(245,179,1,.14); color:var(--gold); margin-left:auto}
+  /* INFO blocks */
+  .block{background:linear-gradient(160deg,var(--surf2),var(--surf)); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:14px}
+  .block h2{font-size:16px; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px}
+  .kv{display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px dashed var(--line); font-size:14px}
+  .kv:last-child{border-bottom:0}
+  .kv .k{color:var(--mut)}
+  .kv .v{font-weight:700; text-align:right}
+  .check{display:flex; align-items:flex-start; gap:11px; padding:10px 0; border-bottom:1px dashed var(--line); cursor:pointer}
+  .check:last-child{border-bottom:0}
+  .check input{appearance:none; width:22px; height:22px; flex:0 0 22px; margin-top:1px; border:2px solid var(--line); border-radius:7px; background:var(--surf); position:relative; cursor:pointer; transition:.15s}
+  .check input:checked{background:var(--teal); border-color:var(--teal)}
+  .check input:checked::after{content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#06231f; font-weight:900; font-size:14px}
+  .check span{font-size:14px; transition:.15s}
+  .check input:checked + span{color:var(--mut); text-decoration:line-through}
+  .note{font-size:12px; color:var(--mut); margin-top:10px; line-height:1.5}
+  .ftr{text-align:center; padding:26px 16px 10px; color:var(--mut); font-size:12px}
+  .ftr b{color:var(--txt)}
+  /* install banner */
+  .install{position:fixed; left:12px; right:12px; bottom:14px; z-index:60; max-width:660px; margin:0 auto;
+    background:linear-gradient(160deg,#13314f,#0c1f36); border:1px solid var(--accent); border-radius:16px;
+    padding:13px 15px; display:none; align-items:center; gap:12px; box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .install.show{display:flex}
+  .install .ix{font-size:26px}
+  .install .it{flex:1; font-size:13px}
+  .install .it b{font-size:14px}
+  .install button{border:0; cursor:pointer; font-weight:800; font-size:13px; padding:9px 14px; border-radius:10px; background:var(--accent); color:#fff}
+  .install .close{background:transparent; color:var(--mut); padding:6px 8px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="tag">🏁 Finde de cumpleaños · Gran Canaria</span>
+  <h1>Cumple de <span class="em">Diego</span> &amp; Darimar</h1>
+  <div class="sub">19 – 21 junio 2026 · de Tenerife en ferry 🚗</div>
+  <div class="couplewrap">
+    <img class="couple" src="img/nosotros.jpg" alt="Diego y Darimar" onerror="this.closest('.couplewrap').style.display='none'">
+    <div class="couplecap">Diego &amp; Darimar 🌴</div>
+  </div>
+  <div class="count">⏳ Faltan <b id="cd">–</b> días</div>
+  <div class="chips">
+    <span class="chip">⛴️ Ferry + coche</span>
+    <span class="chip">🏨 AC Iberia</span>
+    <span class="chip">🏎️ Mercedes a bordo</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <div class="tab active" data-p="vie"><span class="dot">●</span> Viernes<span class="d">Motor + Cumple</span></div>
+  <div class="tab" data-p="sab"><span class="dot">●</span> Sábado<span class="d">Norte + Spa</span></div>
+  <div class="tab" data-p="dom"><span class="dot">●</span> Domingo<span class="d">Mar + Vuelta</span></div>
+  <div class="tab" data-p="info"><span class="dot">●</span> Info<span class="d">Datos + Reservas</span></div>
+</nav>
+
+<div class="wrap">
+
+  <!-- VIERNES -->
+  <section class="panel active" id="vie" style="--accent:var(--red)">
+    <div class="dayhead">
+      <div class="big">19</div>
+      <div><div class="t1">Viernes · Sur de la isla</div><div class="t2">🎂 Día de cumple &amp; motor 🏎️</div></div>
+    </div>
+    <div class="tl">
+      <div class="ev"><div class="time">11:40</div>
+        <div class="card"><h3><span class="ic">⛴️</span> Llegada en ferry</h3>
+        <p>Atracáis en el Puerto de Las Palmas. Desembarcáis el Merci y <b>directos al sur, sin paradas</b> (el tiempo va justo).</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Las+Palmas" target="_blank">📍 Puerto</a></div></div>
+      </div>
+      <div class="ev"><div class="time">12:30 <span class="pill">cita confirmada</span></div>
+        <div class="card"><h3><span class="ic">🏎️</span> Experiencia Motor</h3>
+        <p><b>Circuito de Maspalomas</b> (Supercar Gran Canaria). Paquete Más Vendido: superdeportivo (Ferrari / Porsche 911) + <b>Mazda MX5, 10 vueltas</b> + Ariel Atom de copiloto.</p>
+        <span class="tagline">⚠️ Vuelta con tu Mercedes: pendiente de Chris</span>
+        <div class="btns">
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Circuito+Maspalomas+El+Berriel" target="_blank">📍 Circuito</a>
+          <a class="btn call" href="tel:+34672447920">📞 Chris</a>
+          <a class="btn wa" href="https://wa.me/34672447920" target="_blank">💬 WhatsApp</a>
+        </div></div>
+      </div>
+      <div class="ev"><div class="time">14:30</div>
+        <div class="card"><h3><span class="ic">🍔</span> Comida rápida</h3>
+        <p>Algo práctico cerca de Maspalomas. Sin perder tiempo, que la tarde es vuestra.</p></div>
+      </div>
+      <div class="ev"><div class="time">15:30</div>
+        <div class="card"><h3><span class="ic">🏜️</span> Dunas + Playa del Inglés</h3>
+        <p>Están <b>al lado del circuito</b>. Paseo por las Dunas de Maspalomas y <b>atardecer</b> de postal. Aprovechad que ya estáis aquí.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Dunas+de+Maspalomas" target="_blank">📍 Dunas</a></div></div>
+      </div>
+      <div class="ev"><div class="time">18:30</div>
+        <div class="card"><h3><span class="ic">🏨</span> Check-in hotel</h3>
+        <p>Subís a Las Palmas (~50 min) y entráis al <b>AC Hotel Iberia by Marriott</b>. A ducharos y arreglaros para la noche.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=AC+Hotel+Iberia+Las+Palmas+Marriott" target="_blank">📍 Hotel</a></div></div>
+      </div>
+      <div class="ev"><div class="time">21:00</div>
+        <div class="card"><h3><span class="ic">🎂</span> Cena de cumple</h3>
+        <p>Cena especial en <b>El Churrasco</b> — carne premium (Angus, Rubia Gallega), ambiente íntimo. El broche del día. <b>Reservad con antelación.</b></p>
+        <span class="tagline">🥩 Sorpresa romántica</span>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=El+Churrasco+Las+Palmas" target="_blank">📍 El Churrasco</a></div></div>
+      </div>
+      <div class="ev"><div class="time">23:00</div>
+        <div class="card"><h3><span class="ic">🍸</span> Copa</h3>
+        <p>Paseo y copa por <b>Las Canteras</b> o el ambiente del casco viejo (<b>Vegueta / Triana</b>).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SABADO -->
+  <section class="panel" id="sab" style="--accent:var(--teal)">
+    <div class="dayhead">
+      <div class="big">20</div>
+      <div><div class="t1">Sábado · Norte de la isla</div><div class="t2">🌿 Ruta norte &amp; spa 💆</div></div>
+    </div>
+    <div class="tl">
+      <div class="ev"><div class="time">09:30</div>
+        <div class="card"><h3><span class="ic">🚗</span> Ruta norte</h3>
+        <p>Día de carretera con el Merci por el norte, cerquita del hotel. Pueblos con encanto y costa.</p></div>
+      </div>
+      <div class="ev"><div class="time">10:00</div>
+        <div class="card"><h3><span class="ic">⛪</span> Teror</h3>
+        <p>Pueblo canario de postal: balcones de madera, calles empedradas y la <b>Basílica del Pino</b>. Sabor auténtico.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Teror+Gran+Canaria" target="_blank">📍 Teror</a></div></div>
+      </div>
+      <div class="ev"><div class="time">11:30</div>
+        <div class="card"><h3><span class="ic">🌊</span> Agaete &amp; Charco Azul</h3>
+        <p><b>Puerto de las Nieves</b> (casas blancas, puerto) y el <b>Charco Azul</b>, piscina natural de agua turquesa. Costa noroeste pura.</p>
+        <div class="btns">
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+las+Nieves+Agaete" target="_blank">📍 Pto. Nieves</a>
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Charco+Azul+Agaete" target="_blank">📍 Charco Azul</a>
+        </div></div>
+      </div>
+      <div class="ev"><div class="time">14:00</div>
+        <div class="card"><h3><span class="ic">🍕</span> Comida</h3>
+        <p>Parada para comer por la zona o de vuelta hacia Las Palmas.</p></div>
+      </div>
+      <div class="ev"><div class="time">16:30</div>
+        <div class="card"><h3><span class="ic">💆</span> Spa en pareja</h3>
+        <p>De vuelta en la ciudad, relax merecido: circuito + masaje en pareja en el <b>Hotel Reina Isabel</b> (frente a Las Canteras). <b>Reservad cabina doble.</b></p>
+        <span class="tagline">💑 Detalle para los dos</span>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Hotel+Reina+Isabel+Las+Palmas+spa" target="_blank">📍 Spa</a></div></div>
+      </div>
+      <div class="ev"><div class="time">21:00</div>
+        <div class="card"><h3><span class="ic">🍔</span> Cena</h3>
+        <p>Burger premium en <b>All or Nothing</b> (carne dry-aged, mejor de España 2025) o <b>The Winner</b>. ¿Más de pizza? <b>Napoli Mia</b>.</p>
+        <div class="btns">
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=All+or+Nothing+Burger+Las+Palmas" target="_blank">📍 Burger</a>
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Napoli+Mia+Las+Palmas" target="_blank">📍 Pizza</a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMINGO -->
+  <section class="panel" id="dom" style="--accent:var(--cyan)">
+    <div class="dayhead">
+      <div class="big">21</div>
+      <div><div class="t1">Domingo · Suroeste</div><div class="t2">🐬 Mar &amp; vuelta a casa ⛴️</div></div>
+    </div>
+    <div class="tl">
+      <div class="ev"><div class="time">08:30</div>
+        <div class="card"><h3><span class="ic">🧳</span> Check-out</h3>
+        <p>Salida del hotel <b>antes de las 12:00</b>, pero madrugáis: <b>maletas al coche</b> y a por el último planazo.</p></div>
+      </div>
+      <div class="ev"><div class="time">10:30 <span class="pill">reservar</span></div>
+        <div class="card"><h3><span class="ic">🐬</span> Catamarán + delfines</h3>
+        <p>Salida en barco desde <b>Puerto Rico / Mogán</b> (~2h). Avistamiento de delfines <b>garantizado</b>. Baño en alta mar.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+Rico+Gran+Canaria+puerto" target="_blank">📍 Puerto Rico</a></div></div>
+      </div>
+      <div class="ev"><div class="time">13:00</div>
+        <div class="card"><h3><span class="ic">🚤</span> Puerto de Mogán</h3>
+        <p>La <b>"pequeña Venecia"</b> de Canarias: canales, puentes y terrazas. Comida y paseo tranquilo.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Mogan" target="_blank">📍 Mogán</a></div></div>
+      </div>
+      <div class="ev"><div class="time">15:30</div>
+        <div class="card"><h3><span class="ic">↩️</span> Vuelta a Las Palmas</h3>
+        <p>Regreso tranquilo (~1h10). Tiempo de sobra para el ferry.</p></div>
+      </div>
+      <div class="ev"><div class="time">18:30</div>
+        <div class="card"><h3><span class="ic">⛴️</span> Embarque</h3>
+        <p>En el Puerto de Las Palmas <b>1h30 antes</b> para embarcar el coche con calma.</p>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Estacion+Maritima+Las+Palmas" target="_blank">📍 Estación marítima</a></div></div>
+      </div>
+      <div class="ev"><div class="time">20:00</div>
+        <div class="card"><h3><span class="ic">🏁</span> Ferry a casa</h3>
+        <p>Zarpáis de vuelta a Tenerife. Finde de cumple <b>de los de recordar</b>. 🎉</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="panel" id="info" style="--accent:var(--gold)">
+    <div class="dayhead">
+      <div class="big">ℹ️</div>
+      <div><div class="t1">Lo importante</div><div class="t2">Datos, contactos y reservas</div></div>
+    </div>
+
+    <div class="block">
+      <h2>⛴️ Ferry (Naviera Armas)</h2>
+      <div class="kv"><span class="k">Ida</span><span class="v">Vie 19 · 10:00 → 11:40<br>Tenerife → Las Palmas</span></div>
+      <div class="kv"><span class="k">Vuelta</span><span class="v">Dom 21 · 20:00<br>Las Palmas → Tenerife</span></div>
+      <div class="kv"><span class="k">Ref. Armas</span><span class="v">23913010</span></div>
+      <div class="kv"><span class="k">Ref. Direct Ferries</span><span class="v">DFP196673443</span></div>
+    </div>
+
+    <div class="block">
+      <h2>🏨 Hotel</h2>
+      <div class="kv"><span class="k">AC Iberia by Marriott</span><span class="v">Av. Alcalde J. Ramírez<br>Bethencourt, 8</span></div>
+      <div class="kv"><span class="k">Check-in / out</span><span class="v">Vie 15:00 / Dom 12:00</span></div>
+      <div class="kv"><span class="k">Confirmación</span><span class="v">5298904828 · PIN 8900</span></div>
+      <div class="btns" style="margin-top:12px">
+        <a class="btn call" href="tel:+34928361133">📞 Llamar hotel</a>
+        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=AC+Hotel+Iberia+Las+Palmas" target="_blank">📍 Mapa</a>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>📞 Contactos rápidos</h2>
+      <div class="btns">
+        <a class="btn call" href="tel:+34672447920">🏎️ Chris (Supercar)</a>
+        <a class="btn wa" href="https://wa.me/34672447920" target="_blank">💬 WhatsApp Chris</a>
+        <a class="btn call" href="tel:+34928563101">📞 Circuito (tu coche)</a>
+        <a class="btn call" href="tel:+34928361133">🏨 Hotel</a>
+      </div>
+      <p class="note">El <b>928 563 101</b> es del Circuito de Maspalomas (L-V 9-18h) para confirmar si admiten tu Mercedes a tanda el viernes y a qué precio.</p>
+    </div>
+
+    <div class="block">
+      <h2>✅ Reservas pendientes</h2>
+      <label class="check"><input type="checkbox" data-k="r1"><span>Confirmar vuelta con el Mercedes (Chris / Circuito)</span></label>
+      <label class="check"><input type="checkbox" data-k="r2"><span>Reservar cena de cumple — El Churrasco (vie)</span></label>
+      <label class="check"><input type="checkbox" data-k="r3"><span>Reservar spa en pareja — cabina doble (sáb)</span></label>
+      <label class="check"><input type="checkbox" data-k="r4"><span>Reservar catamarán de delfines (dom)</span></label>
+      <label class="check"><input type="checkbox" data-k="r5"><span>Avisar a Chris de la hora del ferry (11:40)</span></label>
+    </div>
+
+    <div class="block">
+      <h2>🏁 Checklist motor (tu Mercedes en pista)</h2>
+      <label class="check"><input type="checkbox" data-k="m1"><span>Casco homologado (o alquilarlo allí)</span></label>
+      <label class="check"><input type="checkbox" data-k="m2"><span>Frenos y neumáticos en buen estado</span></label>
+      <label class="check"><input type="checkbox" data-k="m3"><span>Niveles OK y sin fugas de líquidos</span></label>
+      <label class="check"><input type="checkbox" data-k="m4"><span>Vaciar objetos sueltos del habitáculo</span></label>
+      <label class="check"><input type="checkbox" data-k="m5"><span>Confirmar seguro de pista (el de calle no cubre)</span></label>
+    </div>
+
+    <div class="block">
+      <h2>💶 Presupuesto orientativo</h2>
+      <div class="kv"><span class="k">Ferry + coche</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
+      <div class="kv"><span class="k">Hotel (2 noches)</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
+      <div class="kv"><span class="k">Motor (Más Vendido)</span><span class="v">289 €</span></div>
+      <div class="kv"><span class="k">Mercedes en pista</span><span class="v">~50 € (a confirmar)</span></div>
+      <div class="kv"><span class="k">Spa en pareja</span><span class="v">~80-120 €</span></div>
+      <div class="kv"><span class="k">Catamarán (2 pax)</span><span class="v">~60 €</span></div>
+      <div class="kv"><span class="k">Comidas + extras</span><span class="v">variable</span></div>
+    </div>
+
+    <p class="note">💡 Reserva el motor, el spa y el catamarán <b>cuanto antes</b>: en junio y fin de semana vuelan.</p>
+  </section>
+
+</div>
+
+<div class="install" id="install">
+  <span class="ix">📲</span>
+  <div class="it"><b>Instálala como app</b><br><span id="installtxt">Pantalla completa, sin barra del navegador.</span></div>
+  <button id="installbtn">Instalar</button>
+  <button class="close" id="installclose">✕</button>
+</div>
+
+<div class="ftr">Hecho con cariño para <b>Diego &amp; Darimar</b> 🎂🏎️🌴<br>Gran Canaria · 19-21 junio 2026</div>
+
+<script>
+  // TABS
+  const tabs=document.querySelectorAll('.tab'), panels=document.querySelectorAll('.panel');
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    panels.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById(t.dataset.p).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }));
+
+  // COUNTDOWN
+  (function(){
+    const target=new Date('2026-06-19T10:00:00');
+    const now=new Date();
+    const d=Math.ceil((target-now)/(1000*60*60*24));
+    const el=document.getElementById('cd');
+    if(d>1) el.textContent=d;
+    else if(d===1) el.textContent='1';
+    else { el.textContent='0'; el.parentNode.innerHTML='🎉 ¡A disfrutar el cumple!'; }
+  })();
+
+  // CHECKBOXES con memoria
+  document.querySelectorAll('.check input').forEach(cb=>{
+    const key='gctrip_'+cb.dataset.k;
+    if(localStorage.getItem(key)==='1') cb.checked=true;
+    cb.addEventListener('change',()=>localStorage.setItem(key,cb.checked?'1':'0'));
+  });
+
+  // PWA install
+  let deferred=null;
+  const banner=document.getElementById('install');
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone)banner.classList.add('show');});
+  document.getElementById('installbtn').addEventListener('click',async()=>{
+    if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');}
+  });
+  document.getElementById('installclose').addEventListener('click',()=>{banner.classList.remove('show');localStorage.setItem('gctrip_noinstall','1');});
+  if(isIOS && !standalone && localStorage.getItem('gctrip_noinstall')!=='1'){
+    document.getElementById('installbtn').style.display='none';
+    document.getElementById('installtxt').innerHTML='Pulsa <b>Compartir</b> ▵ y "Añadir a pantalla de inicio".';
+    banner.classList.add('show');
+  }
+
+  // Service worker
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+</script>
+</body>
+</html>
