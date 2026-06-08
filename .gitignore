@@ -1,9 +1,14 @@
 # Basura de macOS
 .DS_Store
 
-# Fotos originales pesadas (la web usa las versiones ligeras .jpg)
-img/*.JPG
-img/*.png
+# Fotos originales pesadas (la web usa las versiones ligeras versionadas)
+img/Darimar-guapa.JPG
+img/dari-con-flores.JPG
+img/lavando-coche.JPG
+img/mercede-lado.JPG
+img/mercedes-frente.JPG
+img/madrugon.png
 img/diego-portada-MERCEDES.jpg
 img/foto-manejando.jpg
 img/yo-manejando.jpg
+img/yo-besando-dari.JPG
