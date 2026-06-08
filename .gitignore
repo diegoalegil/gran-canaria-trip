@@ -1,0 +1,9 @@
+# Basura de macOS
+.DS_Store
+
+# Fotos originales pesadas (la web usa las versiones ligeras .jpg)
+img/*.JPG
+img/*.png
+img/diego-portada-MERCEDES.jpg
+img/foto-manejando.jpg
+img/yo-manejando.jpg
