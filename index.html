@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Cumple en Gran Canaria · Diego & Darimar</title>
+<title>Cumple en Gran Canaria · Diego</title>
 <meta name="description" content="Itinerario del finde de cumple en Gran Canaria, 19-21 junio 2026.">
 <meta name="theme-color" content="#0a1628">
 <link rel="manifest" href="manifest.json">
@@ -39,7 +39,7 @@
   .chip{font-size:12px; font-weight:600; color:var(--mut); background:rgba(255,255,255,.05); border:1px solid var(--line); padding:6px 12px; border-radius:20px}
   .tabs{position:sticky; top:0; z-index:50; display:flex; gap:6px; padding:10px 12px; background:rgba(8,16,32,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); overflow-x:auto; scrollbar-width:none}
   .tabs::-webkit-scrollbar{display:none}
-  .tab{flex:1 0 auto; min-width:78px; text-align:center; cursor:pointer; padding:9px 12px; border-radius:12px; font-weight:700; font-size:13px; color:var(--mut); background:var(--surf); border:1px solid transparent; transition:.18s; white-space:nowrap}
+  .tab{flex:0 0 auto; text-align:center; cursor:pointer; padding:9px 12px; border-radius:12px; font-weight:700; font-size:13px; color:var(--mut); background:var(--surf); border:1px solid transparent; transition:.18s; white-space:nowrap}
   .tab .d{display:block; font-size:11px; font-weight:600; opacity:.7; margin-top:1px}
   .tab.active{color:#fff; background:linear-gradient(160deg,var(--surf2),var(--surf)); border-color:var(--accent)}
   .tab.active .dot{color:var(--accent)}
@@ -78,6 +78,7 @@
   .spa-frame{border:2px solid var(--cyan) !important; box-shadow:0 0 16px rgba(34,211,238,.45)}
   .bubbles span{position:absolute; bottom:-24px; border-radius:50%; background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.95), rgba(255,255,255,.12) 70%); border:1px solid rgba(255,255,255,.45); animation:bubup 4.6s linear infinite; opacity:0}
   @keyframes bubup{0%{transform:translateY(0) scale(.5); opacity:0}15%{opacity:.85}100%{transform:translateY(-300px) scale(1.15); opacity:0}}
+  .wave-frame{border:2px solid var(--cyan) !important; box-shadow:0 0 16px rgba(34,211,238,.4)}
   .shinewrap{position:relative; overflow:hidden; border-radius:12px; margin-top:11px; border:1px solid var(--line)}
   .shinewrap .ph{margin-top:0; border:0; border-radius:0}
   .shinewrap::after{content:""; position:absolute; top:0; left:-70%; width:45%; height:100%; background:linear-gradient(110deg,transparent,rgba(255,255,255,.6),transparent); transform:skewX(-18deg); animation:sweep 3.6s ease-in-out infinite; pointer-events:none; z-index:2}
@@ -102,9 +103,29 @@
   .check input{appearance:none; width:22px; height:22px; flex:0 0 22px; margin-top:1px; border:2px solid var(--line); border-radius:7px; background:var(--surf); position:relative; cursor:pointer; transition:.15s}
   .check input:checked{background:var(--teal); border-color:var(--teal)}
   .check input:checked::after{content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#06231f; font-weight:900; font-size:14px}
-  .check span{font-size:14px; transition:.15s}
+  .check span{font-size:14px}
   .check input:checked + span{color:var(--mut); text-decoration:line-through}
   .note{font-size:12px; color:var(--mut); margin-top:10px; line-height:1.5}
+  /* contador de gastos */
+  .gform{display:flex; flex-wrap:wrap; gap:8px}
+  .gform input,.gform select{background:var(--surf); border:1px solid var(--line); border-radius:10px; padding:11px 12px; color:var(--txt); font-size:14px; font-weight:600; font-family:inherit}
+  .gform input:focus,.gform select:focus{outline:none; border-color:var(--accent)}
+  #g-concepto{flex:1 1 100%}
+  #g-dia{flex:1 1 48%}
+  #g-importe{flex:1 1 46%}
+  #g-add{flex:1 1 100%; background:var(--accent); color:#fff; border:0; font-weight:800; border-radius:10px; padding:12px; cursor:pointer; font-size:14px}
+  #g-add:active{transform:scale(.98)}
+  .gitem{display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px dashed var(--line)}
+  .gitem:last-child{border-bottom:0}
+  .gitem .gc{flex:1; font-weight:600; font-size:14px}
+  .gitem .gc small{display:block; font-size:11px; color:var(--mut); font-weight:700; text-transform:uppercase; letter-spacing:.5px}
+  .gitem .gm{font-weight:800; color:var(--gold); font-size:15px; white-space:nowrap}
+  .gitem .gx{cursor:pointer; color:var(--mut); font-size:18px; padding:2px 6px; line-height:1}
+  .gempty{color:var(--mut); font-size:13px; text-align:center; padding:8px 0}
+  .gtotal{display:flex; justify-content:space-between; padding:7px 0; font-size:14px; color:var(--mut)}
+  .gtotal .v{font-weight:700; color:var(--txt)}
+  .gtotal.big{font-size:21px; font-weight:800; color:var(--txt); border-top:2px solid var(--line); margin-top:8px; padding-top:13px}
+  .gtotal.big .v{color:var(--gold)}
   .ftr{text-align:center; padding:26px 16px 10px; color:var(--mut); font-size:12px}
   .ftr b{color:var(--txt)}
   .confetti{position:fixed; top:-30px; z-index:999; pointer-events:none; will-change:transform; animation:fall linear forwards}
@@ -142,7 +163,8 @@
   <div class="tab active" data-p="vie"><span class="dot">●</span> Viernes<span class="d">Motor + Cumple</span></div>
   <div class="tab" data-p="sab"><span class="dot">●</span> Sábado<span class="d">Spa + Holiday World</span></div>
   <div class="tab" data-p="dom"><span class="dot">●</span> Domingo<span class="d">Mar + Vuelta</span></div>
-  <div class="tab" data-p="info"><span class="dot">●</span> Info<span class="d">Datos + Compras</span></div>
+  <div class="tab" data-p="gastos"><span class="dot">●</span> Gastos<span class="d">Cuentas del viaje</span></div>
+  <div class="tab" data-p="info"><span class="dot">●</span> Info<span class="d">Datos + Reservas</span></div>
 </nav>
 
 <div class="wrap">
@@ -156,7 +178,8 @@
     <div class="tl">
       <div class="ev"><div class="time">11:40</div>
         <div class="card"><h3><span class="ic">⛴️</span> Pisan Gran Canaria</h3>
-        <p>Bajan a <b>la bestia</b> por la rampa con todo el orgullo y directos al sur. Nada de paradas para selfies, que el reloj viene apretando. 🏃</p>
+        <p>Llegan en el ferry y bajan a <b>la bestia</b> por la rampa con todo el orgullo. Directos al sur, sin paradas para selfies, que el reloj viene apretando. 🏃</p>
+        <img class="ph" src="img/ferry.jpg" alt="Ferry llegando a Gran Canaria" loading="lazy">
         <img class="ph" src="img/coche-lado.jpg" alt="El Mercedes de lado" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Las+Palmas" target="_blank">📍 Puerto</a></div></div>
       </div>
@@ -176,7 +199,8 @@
       </div>
       <div class="ev"><div class="time">14:30</div>
         <div class="card"><h3><span class="ic">🍔</span> Recarga rápida</h3>
-        <p>Algo de comer cerca de Maspalomas, sin enrollarse. Que la tarde viene cargada de arena y atardecer.</p></div>
+        <p>Algo de comer cerca de Maspalomas, sin enrollarse. Que la tarde viene cargada de arena y atardecer.</p>
+        <img class="ph" src="img/comida.jpg" alt="Comida" loading="lazy"></div>
       </div>
       <div class="ev"><div class="time">15:30</div>
         <div class="card"><h3><span class="ic">🏖️</span> Dunas + Playa del Inglés</h3>
@@ -190,11 +214,13 @@
       <div class="ev"><div class="time">18:30</div>
         <div class="card"><h3><span class="ic">🏨</span> Check-in y a brillar</h3>
         <p>Suben a Las Palmas (~50 min) y caen en el <b>AC Iberia</b>. Ducha, ropa limpia y a ponerse guapos para la cena grande.</p>
+        <img class="ph" src="img/hotel.jpg" alt="AC Hotel Iberia Las Palmas" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=AC+Hotel+Iberia+Las+Palmas+Marriott" target="_blank">📍 Hotel</a></div></div>
       </div>
       <div class="ev"><div class="time">19:30</div>
         <div class="card"><h3><span class="ic">🛍️</span> Alisios (si queda pila)</h3>
         <p>El centro comercial <b>más grande</b> de la isla, a 15 min. Si tras el subidón de motor el cuerpo aún responde, una vuelta de compras y a cenar.</p>
+        <img class="ph" src="img/alisios.jpg" alt="Centro Comercial Alisios" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a></div></div>
       </div>
       <div class="ev"><div class="time">21:00</div>
@@ -250,6 +276,7 @@
       <div class="ev"><div class="time">12:30</div>
         <div class="card"><h3><span class="ic">🛍️</span> Las Arenas, al ladito</h3>
         <p>Saliendo del spa lo tienen enfrente: <b>Las Arenas</b>, frente a la playa y junto al Auditorio. Tiendas, terrazas con vistas al mar y un bocado. 2x1 en relax y compras.</p>
+        <img class="ph" src="img/arenas.jpg" alt="Centro Comercial Las Arenas" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a></div></div>
       </div>
       <div class="ev"><div class="time">15:00</div>
@@ -260,6 +287,7 @@
       <div class="ev"><div class="time">16:00 <span class="pill">entradas</span></div>
         <div class="card"><h3><span class="ic">🎢</span> Holiday World Maspalomas</h3>
         <p>El <b>único parque de atracciones de Canarias</b>: abre a las 16:00 y la lía hasta pasada la medianoche. Montañas rusas, noria gigante y mil lucecitas de feria. <b>El cambio que pidió Darimar</b>, y de los buenos. Entrada ~13€, mejor online.</p>
+        <img class="ph" src="img/holidayworld.jpg" alt="Holiday World Maspalomas de noche" loading="lazy">
         <span class="tagline">🎟️ Ojo: solo abre por la tarde-noche</span>
         <div class="btns">
           <a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank">🎟️ Entradas</a>
@@ -268,8 +296,12 @@
       </div>
       <div class="ev"><div class="time">21:00</div>
         <div class="card"><h3><span class="ic">🍔</span> Cena de premio</h3>
-        <p>En el parque o de vuelta: burger premium (<b>All or Nothing</b> / <b>The Winner</b>) o pizza napolitana (<b>Napoli Mia</b>). Combustible para aguantar la noria. 🍕</p>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=All+or+Nothing+Burger+Las+Palmas" target="_blank">📍 Burger</a></div></div>
+        <p>Burger premium en <b>All or Nothing</b> (carne dry-aged) o <b>The Winner</b>, o pizza napolitana en <b>Napoli Mia</b>. Combustible para aguantar la noria. 🍔</p>
+        <img class="ph" src="img/burger.jpg" alt="Burger premium" loading="lazy">
+        <div class="btns">
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=All+or+Nothing+Burger+Las+Palmas" target="_blank">📍 Burger</a>
+          <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Napoli+Mia+Las+Palmas" target="_blank">📍 Pizza</a>
+        </div></div>
       </div>
     </div>
   </section>
@@ -293,11 +325,13 @@
       <div class="ev"><div class="time">10:30 <span class="pill">reservar</span></div>
         <div class="card"><h3><span class="ic">🐬</span> Catamarán + delfines</h3>
         <p>Barco desde <b>Puerto Rico / Mogán</b> (~2h), sol, baño en alta mar y delfines <b>casi garantizados</b>. Material de presumir en redes asegurado.</p>
+        <img class="ph wave-frame" src="img/delfines.jpg" alt="Catamarán con delfines" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+Rico+Gran+Canaria+puerto" target="_blank">📍 Puerto Rico</a></div></div>
       </div>
       <div class="ev"><div class="time">13:00</div>
         <div class="card"><h3><span class="ic">🚤</span> Puerto de Mogán</h3>
         <p>La <b>"pequeña Venecia"</b> canaria: canales, puentes y terracitas. Comer casi con los pies sobre el agua. Pueblo de cuento.</p>
+        <img class="ph" src="img/mogan.jpg" alt="Puerto de Mogán" loading="lazy">
         <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Puerto+de+Mogan" target="_blank">📍 Mogán</a></div></div>
       </div>
       <div class="ev"><div class="time">17:00</div>
@@ -313,16 +347,48 @@
       </div>
       <div class="ev"><div class="time">20:00</div>
         <div class="card"><h3><span class="ic">🏁</span> Vuelta a casa</h3>
-        <p>Zarpan a Tenerife con el depósito de recuerdos a tope. Cumpleaños de matrícula de honor. 🎉</p></div>
+        <p>Zarpan a Tenerife con el depósito de recuerdos a tope. Cumpleaños de matrícula de honor. 🎉</p>
+        <img class="ph" src="img/tenerife.jpg" alt="El Teide, de vuelta a casa en Tenerife" loading="lazy"></div>
       </div>
     </div>
+  </section>
+
+  <!-- GASTOS -->
+  <section class="panel" id="gastos" style="--accent:var(--gold)">
+    <div class="dayhead">
+      <div class="big">💶</div>
+      <div><div class="t1">Cuentas del viaje</div><div class="t2">Contador de gastos</div></div>
+    </div>
+    <div class="block">
+      <h2>➕ Apuntar un gasto</h2>
+      <div class="gform">
+        <input id="g-concepto" placeholder="Concepto (ej. cena, gasolina, entradas...)">
+        <select id="g-dia">
+          <option value="Viernes">Viernes</option>
+          <option value="Sábado">Sábado</option>
+          <option value="Domingo">Domingo</option>
+          <option value="General">General</option>
+        </select>
+        <input id="g-importe" type="number" min="0" step="0.01" inputmode="decimal" placeholder="€">
+        <button id="g-add">Añadir gasto</button>
+      </div>
+    </div>
+    <div class="block">
+      <h2>🧾 Gastos apuntados</h2>
+      <div id="g-list"><div class="gempty">Todavía no han apuntado nada. ¡A gastar (con cabeza)! 😄</div></div>
+    </div>
+    <div class="block">
+      <h2>📊 Totales</h2>
+      <div id="g-totals"></div>
+    </div>
+    <p class="note">💡 Los gastos se guardan en este móvil. Apunten sobre la marcha y al final del viaje verán el total exacto.</p>
   </section>
 
   <!-- INFO -->
   <section class="panel" id="info" style="--accent:var(--gold)">
     <div class="dayhead">
       <div class="big">ℹ️</div>
-      <div><div class="t1">Lo importante</div><div class="t2">Datos, compras y reservas</div></div>
+      <div><div class="t1">Lo importante</div><div class="t2">Datos y reservas</div></div>
     </div>
 
     <div class="block">
@@ -354,19 +420,6 @@
     </div>
 
     <div class="block">
-      <h2>🛍️ Centros comerciales grandes</h2>
-      <div class="kv"><span class="k">Alisios</span><span class="v">El más grande · vie</span></div>
-      <div class="kv"><span class="k">Las Arenas</span><span class="v">Frente a Las Canteras · sáb</span></div>
-      <div class="kv"><span class="k">El Muelle</span><span class="v">Junto al puerto · dom</span></div>
-      <div class="btns" style="margin-top:12px">
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Alisios+Las+Palmas" target="_blank">📍 Alisios</a>
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank">📍 Las Arenas</a>
-        <a class="btn map" href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+El+Muelle+Las+Palmas" target="_blank">📍 El Muelle</a>
-      </div>
-      <p class="note">Ojo al horario: las tiendas suelen cerrar sobre las <b>22:00</b>. Nada de compras de madrugada. 😉</p>
-    </div>
-
-    <div class="block">
       <h2>📞 Contactos rápidos</h2>
       <div class="btns">
         <a class="btn call" href="tel:+34672447920">🏎️ Chris (Supercar)</a>
@@ -395,18 +448,6 @@
       <label class="check"><input type="checkbox" data-k="m5"><span>Confirmar seguro de pista (el de calle no cubre)</span></label>
     </div>
 
-    <div class="block">
-      <h2>💶 Presupuesto orientativo</h2>
-      <div class="kv"><span class="k">Ferry + coche</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
-      <div class="kv"><span class="k">Hotel (2 noches)</span><span class="v" style="color:var(--teal)">PAGADO</span></div>
-      <div class="kv"><span class="k">Motor (Más Vendido)</span><span class="v">289 €</span></div>
-      <div class="kv"><span class="k">La bestia en pista</span><span class="v">~50 € (a confirmar)</span></div>
-      <div class="kv"><span class="k">Holiday World (2 pax)</span><span class="v">~26 €</span></div>
-      <div class="kv"><span class="k">Spa en pareja</span><span class="v">~80-120 €</span></div>
-      <div class="kv"><span class="k">Catamarán (2 pax)</span><span class="v">~60 €</span></div>
-      <div class="kv"><span class="k">Comidas + compras</span><span class="v">variable</span></div>
-    </div>
-
     <p class="note">💡 Reserven el motor, las entradas de Holiday World, el spa y el catamarán <b>cuanto antes</b>: en junio y fin de semana vuelan.</p>
   </section>
 
@@ -424,8 +465,7 @@
 <script>
   const tabs=document.querySelectorAll('.tab'), panels=document.querySelectorAll('.panel');
   function animatePanel(panel){
-    const evs=panel.querySelectorAll('.ev');
-    evs.forEach((ev,i)=>{
+    panel.querySelectorAll('.ev').forEach((ev,i)=>{
       ev.classList.add('reveal'); ev.classList.remove('in');
       setTimeout(()=>ev.classList.add('in'), 40+i*70);
     });
@@ -454,18 +494,43 @@
     if(localStorage.getItem(key)==='1') cb.checked=true;
     cb.addEventListener('change',()=>localStorage.setItem(key,cb.checked?'1':'0'));
   });
+  // ===== CONTADOR DE GASTOS =====
+  const DIAS=['Viernes','Sábado','Domingo','General'];
+  const fmt=n=>n.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+  function loadG(){ try{return JSON.parse(localStorage.getItem('gctrip_gastos')||'[]')}catch(e){return[]} }
+  function saveG(g){ localStorage.setItem('gctrip_gastos', JSON.stringify(g)); }
+  function renderG(){
+    const g=loadG(), list=document.getElementById('g-list'), tot=document.getElementById('g-totals');
+    if(!g.length){ list.innerHTML='<div class="gempty">Todavía no han apuntado nada. ¡A gastar (con cabeza)! 😄</div>'; }
+    else{
+      list.innerHTML=g.map((x,i)=>`<div class="gitem"><div class="gc">${x.c}<small>${x.d}</small></div><div class="gm">${fmt(x.m)}</div><div class="gx" data-i="${i}">✕</div></div>`).join('');
+      list.querySelectorAll('.gx').forEach(b=>b.addEventListener('click',()=>{ const gg=loadG(); gg.splice(+b.dataset.i,1); saveG(gg); renderG(); }));
+    }
+    const byDay={}; DIAS.forEach(d=>byDay[d]=0); let total=0;
+    g.forEach(x=>{ byDay[x.d]=(byDay[x.d]||0)+x.m; total+=x.m; });
+    let html='';
+    DIAS.forEach(d=>{ if(byDay[d]>0) html+=`<div class="gtotal"><span>${d}</span><span class="v">${fmt(byDay[d])}</span></div>`; });
+    html+=`<div class="gtotal big"><span>Total del viaje</span><span class="v">${fmt(total)}</span></div>`;
+    tot.innerHTML=html;
+  }
+  document.getElementById('g-add').addEventListener('click',()=>{
+    const c=document.getElementById('g-concepto'), d=document.getElementById('g-dia'), m=document.getElementById('g-importe');
+    const concepto=c.value.trim(), importe=parseFloat(m.value);
+    if(!concepto || !(importe>0)){ m.focus(); return; }
+    const g=loadG(); g.push({c:concepto, d:d.value, m:importe}); saveG(g);
+    c.value=''; m.value=''; c.focus(); renderG();
+  });
+  document.getElementById('g-importe').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('g-add').click(); });
+  renderG();
   // confeti
   function confetti(n){
     const e=['🎉','🎂','🏎️','☀️','🌴','❤️','🏁','🐬'];
     for(let i=0;i<(n||26);i++){
       const s=document.createElement('div'); s.className='confetti';
       s.textContent=e[Math.floor(Math.random()*e.length)];
-      s.style.left=Math.random()*100+'vw';
-      s.style.fontSize=(15+Math.random()*16)+'px';
-      s.style.animationDuration=(2.4+Math.random()*1.6)+'s';
-      s.style.animationDelay=(Math.random()*0.5)+'s';
-      document.body.appendChild(s);
-      setTimeout(()=>s.remove(),4200);
+      s.style.left=Math.random()*100+'vw'; s.style.fontSize=(15+Math.random()*16)+'px';
+      s.style.animationDuration=(2.4+Math.random()*1.6)+'s'; s.style.animationDelay=(Math.random()*0.5)+'s';
+      document.body.appendChild(s); setTimeout(()=>s.remove(),4200);
     }
   }
   document.getElementById('count').addEventListener('click',()=>confetti(30));
@@ -475,16 +540,14 @@
   const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
   const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone)banner.classList.add('show');});
-  document.getElementById('installbtn').addEventListener('click',async()=>{
-    if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');}
-  });
+  document.getElementById('installbtn').addEventListener('click',async()=>{ if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');} });
   document.getElementById('installclose').addEventListener('click',()=>{banner.classList.remove('show');localStorage.setItem('gctrip_noinstall','1');});
   if(isIOS && !standalone && localStorage.getItem('gctrip_noinstall')!=='1'){
     document.getElementById('installbtn').style.display='none';
     document.getElementById('installtxt').innerHTML='Pulsa <b>Compartir</b> ▵ y "Añadir a pantalla de inicio".';
     banner.classList.add('show');
   }
-  // arranque: cascada del primer día + confeti de bienvenida
+  // arranque
   animatePanel(document.querySelector('.panel.active'));
   setTimeout(()=>confetti(24), 350);
   if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}

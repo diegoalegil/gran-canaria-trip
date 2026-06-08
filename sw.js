@@ -1,5 +1,5 @@
 // Service worker — cache para que la app funcione sin conexión
-const CACHE = 'gctrip-v5';
+const CACHE = 'gctrip-v6';
 const ASSETS = [
   './',
   './index.html',
