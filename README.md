@@ -7,11 +7,12 @@ Itinerario interactivo del finde de cumpleaños (19-21 junio 2026), instalable c
 - `manifest.json` — datos de la PWA (nombre, iconos, colores)
 - `sw.js` — service worker (funciona sin conexión)
 - `icons/` — iconos de la app
+- `img/` — fotos usadas por el itinerario
 
 ## Cómo subirla a GitHub Pages (gratis, 5 min)
 
 1. Entra en **github.com** → botón **New** → crea un repo, por ejemplo `gran-canaria-trip` (público).
-2. En el repo: **Add file → Upload files**. Arrastra **todos** estos archivos **y la carpeta `icons/`**. Commit.
+2. En el repo: **Add file → Upload files**. Arrastra **todos** estos archivos **y las carpetas `icons/` e `img/`**. Commit.
 3. **Settings → Pages**. En *Source* elige **Deploy from a branch**, rama **main**, carpeta **/(root)**. Guarda.
 4. Espera ~1 min y recarga: te dará la URL pública, tipo
    `https://TU-USUARIO.github.io/gran-canaria-trip/`

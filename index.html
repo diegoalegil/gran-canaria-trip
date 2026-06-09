@@ -6,9 +6,17 @@
 <title>Cumple en Gran Canaria · Diego</title>
 <meta name="description" content="Itinerario del finde de cumple en Gran Canaria, 19-21 junio 2026.">
 <meta name="theme-color" content="#0b1117">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cumple en Gran Canaria · Diego">
+<meta property="og:description" content="Itinerario del finde de cumple en Gran Canaria, 19-21 junio 2026.">
+<meta property="og:url" content="https://diegoalegil.github.io/gran-canaria-trip/">
+<meta property="og:image" content="https://diegoalegil.github.io/gran-canaria-trip/img/portada.jpg">
+<meta property="og:locale" content="es_ES">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icons/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" as="image" href="img/portada.jpg">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Gran Canaria">
@@ -139,7 +147,7 @@
   <h1>Cumple de <span class="em">Diego</span> 🎂</h1>
   <div class="sub">19 – 21 junio 2026 · de Tenerife en ferry 🚗</div>
   <div class="couplewrap">
-    <div class="coupleframe"><img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" onerror="this.closest('.couplewrap').style.display='none'"></div>
+    <div class="coupleframe"><img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" fetchpriority="high" decoding="async" onerror="this.closest('.couplewrap').style.display='none'"></div>
     <div class="couplecap">Diego &amp; la bestia 🌅🏎️</div>
   </div>
   <button class="count" id="count" type="button" aria-label="Lanzar confeti de cumpleaños">⏳ Faltan <b id="cd">–</b> días</button>
