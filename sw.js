@@ -1,5 +1,5 @@
 // Service worker: shell offline + HTML fresco cuando haya conexión.
-const CACHE = 'gctrip-v14';
+const CACHE = 'gctrip-v15';
 const ASSETS = [
   './',
   './index.html',
@@ -11,7 +11,6 @@ const ASSETS = [
   './img/ferry.jpg',
   './img/coche-lado.jpg',
   './img/ferrari.jpg',
-  './img/coche-frente.jpg',
   './img/comida.jpg',
   './img/playa.jpg',
   './img/hotel.jpg',
