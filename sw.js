@@ -1,5 +1,5 @@
 // Service worker: shell offline + HTML fresco cuando haya conexión.
-const CACHE = 'gctrip-v13';
+const CACHE = 'gctrip-v14';
 const ASSETS = [
   './',
   './index.html',
@@ -51,7 +51,10 @@ self.addEventListener('fetch', e => {
   if (wantsHTML) {
     e.respondWith(
       fetch(e.request).then(res => {
-        if (res.ok && isSameOrigin) caches.open(CACHE).then(c => c.put('./index.html', res.clone()));
+        if (res.ok && isSameOrigin) {
+          const copy = res.clone();
+          e.waitUntil(caches.open(CACHE).then(c => c.put('./index.html', copy)));
+        }
         return res;
       }).catch(() => caches.match('./index.html'))
     );
@@ -60,7 +63,10 @@ self.addEventListener('fetch', e => {
 
   e.respondWith(
     caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
-      if (res.ok && isSameOrigin) caches.open(CACHE).then(c => c.put(e.request, res.clone()));
+      if (res.ok && isSameOrigin) {
+        const copy = res.clone();
+        e.waitUntil(caches.open(CACHE).then(c => c.put(e.request, copy)));
+      }
       return res;
     }))
   );

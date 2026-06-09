@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Cumple en Gran Canaria · Diego</title>
 <meta name="description" content="Itinerario del finde de cumple en Gran Canaria, 19-21 junio 2026.">
-<meta name="theme-color" content="#0b1117">
+<meta name="theme-color" content="#0a0e13">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cumple en Gran Canaria · Diego">
@@ -17,294 +17,453 @@
 <link rel="icon" href="icons/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preload" as="image" href="img/portada.jpg">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Gran Canaria">
 <style>
-  :root{--bg:#0b1117;--bg-soft:#101820;--surf:#121d24;--surf2:#172630;--txt:#f3f0e8;--mut:#b7c3ca;--line:#2c3f4b;--red:#d94b4b;--teal:#2ab5a3;--cyan:#4da8c5;--gold:#d9a93f;--pink:#d66f91;--accent:var(--red);--radius-sm:8px;--radius-md:12px;--radius-lg:14px;--shadow:0 10px 28px rgba(0,0,0,.26);--focus:0 0 0 3px rgba(217,169,63,.34)}
+  :root{
+    --bg:#0a0e13; --surf:#121821; --surf-2:#1a212c; --txt:#f4f2ec; --mut:#a9b4be;
+    --line:rgba(226,238,255,.09); --line-strong:rgba(226,238,255,.17);
+    --red:#e0524d; --teal:#2fb9a6; --cyan:#54aecb; --gold:#dcab45; --pink:#d66f91;
+    --accent:var(--red);
+    --accent-soft:rgba(224,82,77,.16); --accent-text:#ff9d96;
+    --ease:cubic-bezier(.32,.72,0,1); --spring:cubic-bezier(.34,1.45,.64,1);
+    --focus:0 0 0 3px rgba(220,171,69,.55);
+    --shadow-card:inset 0 1px 0 rgba(255,255,255,.04),0 2px 10px rgba(0,0,0,.22);
+  }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth;background:var(--bg)}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 420px);color:var(--txt);line-height:1.5;padding-bottom:64px;overflow-x:hidden}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.5;
+    padding-bottom:calc(60px + env(safe-area-inset-bottom));
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+  }
   button,input{font:inherit}
-  button{color:inherit}
+  button{color:inherit;cursor:pointer}
+  a,button,label,input{touch-action:manipulation}
   a,button,input{outline:none}
   a:focus-visible,button:focus-visible,input:focus-visible{border-color:var(--gold)!important;box-shadow:var(--focus)}
-  .hero{position:relative;padding:30px 18px 22px;text-align:center;background:linear-gradient(180deg,#131a20 0%,#0e151b 62%,#0b1117 100%);border-bottom:1px solid var(--line);overflow:hidden}
-  .sunray{display:none}
-  .hero>*:not(.sunray){position:relative;z-index:1}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(243,240,232,.14);z-index:1}
-  .hero .tag{display:inline-block;max-width:34rem;font-size:12px;letter-spacing:.08em;font-weight:800;color:var(--gold);text-transform:uppercase;margin-bottom:9px}
-  .hero h1{font-size:clamp(29px,5vw,40px);font-weight:850;letter-spacing:0;line-height:1.08}
-  .hero h1 .em{color:#f06d5f;-webkit-text-fill-color:currentColor}
-  .hero .sub{color:var(--mut);margin-top:8px;font-size:15px;font-weight:650}
-  .couplewrap{margin:16px auto 0;max-width:min(268px,74vw);position:relative;z-index:1}
-  .coupleframe{position:relative;overflow:hidden;isolation:isolate;width:100%;aspect-ratio:4/5;max-height:330px;border-radius:14px;border:2px solid rgba(243,240,232,.78);background:#07111c;box-shadow:var(--shadow)}
-  .couple{position:relative;z-index:2;width:100%;height:100%;display:block;object-fit:contain;object-position:center;background:transparent}
-  .couplecap{font-size:12px;color:var(--mut);margin-top:7px;font-weight:650}
-  .count{appearance:none;margin:16px auto 4px;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;background:#17232c;border:1px solid var(--line);padding:8px 15px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;user-select:none;transition:background-color .16s ease,border-color .16s ease,transform .16s ease}
-  .count:hover{background:#1d2b34;border-color:#4a6370}
-  .count:active{transform:translateY(1px)}
-  .count b{color:var(--gold);font-size:18px}
-  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-  .chip{font-size:12px;font-weight:700;color:var(--mut);background:#121d24;border:1px solid var(--line);padding:6px 10px;border-radius:8px}
-  .tabs{position:sticky;top:0;z-index:50;display:flex;gap:7px;padding:9px 12px;background:rgba(11,17,23,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab{appearance:none;flex:0 0 auto;text-align:left;cursor:pointer;padding:9px 12px;border-radius:10px;font-weight:800;font-size:13px;color:var(--mut);background:#111b22;border:1px solid transparent;transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease;white-space:nowrap}
-  .tab:hover{background:#18252e;color:var(--txt)}
-  .tab:active{transform:translateY(1px)}
-  .tab .d{display:block;font-size:11px;font-weight:650;opacity:.76;margin-top:1px}
-  .tab.active,.tab[aria-selected="true"]{color:#fff;background:#1a2932;border-color:var(--accent)}
-  .tab.active .dot,.tab[aria-selected="true"] .dot{color:var(--accent)}
-  .wrap{max-width:720px;margin:0 auto;padding:20px 16px}
-  .panel{display:none}.panel.active{display:block}.panel[hidden]{display:none!important}
-  .dayhead{display:flex;align-items:center;gap:12px;margin:6px 2px 20px}
-  .dayhead .big{font-size:38px;font-weight:850;line-height:1;color:var(--accent);min-width:44px}
-  .dayhead .t1{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:800}
-  .dayhead .t2{font-size:20px;font-weight:850;letter-spacing:0;line-height:1.18}
-  .tl{position:relative;padding-left:34px}
-  .tl::before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--accent),rgba(255,255,255,.04))}
-  .ev{position:relative;margin-bottom:16px}
-  .ev::before{content:"";position:absolute;left:-28px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(243,240,232,.06);z-index:1}
-  .ev.reveal{opacity:0;transform:translateY(10px)}
-  .ev.reveal.in{opacity:1;transform:none;transition:opacity .28s ease,transform .28s ease}
-  .ev .time{font-size:12px;font-weight:850;color:var(--accent);letter-spacing:.03em}
-  .card{background:#121d24;border:1px solid var(--line);border-radius:12px;padding:15px;margin-top:6px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
-  .card h3{font-size:16px;font-weight:850;display:flex;align-items:center;gap:8px;line-height:1.22}
+  @supports not selector(:focus-visible){
+    a:focus,button:focus,input:focus{border-color:var(--gold)!important;box-shadow:var(--focus)}
+  }
+  img{-webkit-user-drag:none}
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;text-align:center;overflow:hidden;
+    padding:calc(30px + env(safe-area-inset-top)) 20px 24px;
+    background:linear-gradient(180deg,#121823 0%,#0d1219 55%,var(--bg) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .tag{display:block;max-width:34rem;margin:0 auto 10px;font-size:13px;font-weight:650;color:var(--gold)}
+  .hero h1{font-size:clamp(30px,5.4vw,42px);font-weight:800;letter-spacing:-.022em;line-height:1.06}
+  .hero h1 .em{color:#f06d5f}
+  .hero .sub{color:var(--mut);margin-top:8px;font-size:15px;font-weight:600}
+  .hero-photo{
+    position:relative;overflow:hidden;isolation:isolate;
+    margin:18px auto 0;width:min(272px,72vw);aspect-ratio:4/5;max-height:336px;
+    border-radius:24px;border:2px solid rgba(244,242,236,.78);background:#070d15;
+    box-shadow:0 18px 44px rgba(0,0,0,.42);will-change:transform;
+  }
+  .hero-photo img{position:relative;z-index:2;width:100%;height:100%;display:block;object-fit:contain;object-position:center}
+  .cap{font-size:12.5px;color:var(--mut);margin-top:9px;font-weight:600}
+  .count{
+    appearance:none;margin:16px auto 4px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:44px;background:rgba(255,255,255,.06);border:1px solid var(--line-strong);
+    padding:9px 19px;border-radius:999px;font-weight:750;font-size:14px;
+    user-select:none;-webkit-user-select:none;
+    transition:background-color .25s ease,border-color .25s ease,transform .35s var(--spring);
+  }
+  .count:active{transform:scale(.96);transition-duration:.08s;transition-timing-function:ease-out}
+  .count b{color:var(--gold);font-size:18px;font-variant-numeric:tabular-nums}
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:15px}
+  .chip{font-size:12px;font-weight:650;color:var(--mut);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:6px 13px;border-radius:999px}
+
+  /* ===== Nav (control segmentado) ===== */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+    padding:10px max(14px,env(safe-area-inset-right)) 10px max(14px,env(safe-area-inset-left));
+    background:rgba(10,14,19,.82);
+    -webkit-backdrop-filter:saturate(1.8) blur(20px);backdrop-filter:saturate(1.8) blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav::before{
+    content:"";position:absolute;left:0;right:0;bottom:100%;height:env(safe-area-inset-top,0px);
+    background:rgba(10,14,19,.82);
+    -webkit-backdrop-filter:saturate(1.8) blur(20px);backdrop-filter:saturate(1.8) blur(20px);
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .nav.stuck::before{opacity:1}
+  .seg{
+    position:relative;display:flex;gap:2px;max-width:680px;margin:0 auto;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:3px;
+  }
+  .seg-hl{
+    position:absolute;top:3px;left:0;height:calc(100% - 6px);width:0;
+    background:#222b37;border:1px solid var(--line-strong);border-radius:11px;
+    box-shadow:0 2px 12px rgba(0,0,0,.38);pointer-events:none;
+  }
+  .seg-hl.ready{transition:transform .45s var(--ease),width .45s var(--ease)}
+  .tab{
+    appearance:none;position:relative;z-index:1;flex:1 1 0;min-width:0;min-height:44px;
+    text-align:center;padding:7px 4px;border-radius:11px;border:1px solid transparent;background:transparent;
+    font-weight:700;font-size:13px;color:var(--mut);white-space:nowrap;
+    user-select:none;-webkit-user-select:none;
+    transition:color .25s ease,transform .3s var(--ease);
+  }
+  .tab:active{transform:scale(.95);transition-duration:.08s;transition-timing-function:ease-out}
+  .tab[aria-selected="true"]{color:#fff}
+  .tab .d{display:block;font-size:10.5px;font-weight:600;opacity:.72;margin-top:1px}
+
+  /* ===== Layout ===== */
+  .wrap{max-width:720px;margin:0 auto;padding:22px max(16px,env(safe-area-inset-right)) 20px max(16px,env(safe-area-inset-left))}
+  .panel{display:none}
+  .panel.active{display:block;animation:panelIn .32s var(--ease)}
+  .panel[hidden]{display:none!important}
+  @keyframes panelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .dayhead{display:flex;align-items:baseline;gap:14px;margin:4px 2px 22px}
+  .dayhead .big{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--accent);min-width:48px;font-variant-numeric:tabular-nums}
+  .dayhead .t1{font-size:13px;color:var(--mut);font-weight:650}
+  .dayhead .t2{font-size:21px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+
+  /* ===== Timeline ===== */
+  .tl{position:relative;padding-left:32px}
+  .tl::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;border-radius:2px;background:var(--line-strong)}
+  .ev{position:relative;margin-bottom:18px}
+  .ev::before{content:"";position:absolute;left:-27px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(244,242,236,.06);z-index:1}
+  .js .ev.reveal{opacity:0;transform:translateY(12px)}
+  .js .ev.reveal.in{opacity:1;transform:none;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+  .ev .time{font-size:12.5px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+  .card{
+    background:var(--surf);border:1px solid var(--line);border-radius:18px;
+    padding:16px;margin-top:8px;box-shadow:var(--shadow-card);
+  }
+  .card h3{font-size:16.5px;font-weight:750;display:flex;align-items:center;gap:8px;line-height:1.22;letter-spacing:-.01em}
   .card h3 .ic{font-size:20px;line-height:1}
-  .card p{color:var(--mut);font-size:14px;margin-top:6px}
-  .card .tagline{display:inline-block;margin-top:9px;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:var(--gold)}
-  .ph{width:100%;display:block;aspect-ratio:16/10;object-fit:contain;object-position:center;border-radius:10px;margin-top:11px;border:1px solid var(--line);background:#07111c}
-  .ph.fit-square{aspect-ratio:1/1}
-  .photo-frame,.phwrap,.shinewrap{position:relative;overflow:hidden;isolation:isolate;margin-top:11px;aspect-ratio:16/10;border-radius:10px;border:1px solid var(--line);background:#07111c}
-  .photo-frame.fit-square{aspect-ratio:1/1}
-  .photo-frame.has-blur-bg::before,.coupleframe.has-blur-bg::before{content:"";position:absolute;inset:-30px;background-image:var(--photo-bg);background-size:cover;background-position:center;filter:blur(26px) saturate(1.22) brightness(.66);transform:scale(1.1);opacity:.95;z-index:0}
-  .photo-frame.has-blur-bg::after,.coupleframe.has-blur-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.1),transparent 42%),linear-gradient(180deg,rgba(5,10,18,.1),rgba(5,10,18,.38));pointer-events:none;z-index:1}
-  .photo-frame>.ph,.phwrap>.ph,.shinewrap>.ph{position:relative;z-index:2;width:100%;height:100%;margin:0;border:0!important;border-radius:0;aspect-ratio:auto;background:transparent}
-  .photo-frame.race{border:2px solid var(--red)}
-  .race-badge{position:absolute;top:10px;left:10px;background:rgba(217,75,75,.94);color:#fff;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.05em;box-shadow:0 2px 8px rgba(0,0,0,.32);z-index:4}
-  .photo-frame.heart-frame{border:2px solid var(--pink)}
-  .photo-frame.sun-frame{border:2px solid var(--gold)}
-  .photo-frame.spa-frame,.photo-frame.wave-frame{border:2px solid var(--cyan)}
-  .hearts,.suns,.bubbles{display:none}
-  .shinewrap::after{display:none}
-  .shinewrap.has-blur-bg::after{content:"";display:block;position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,10,18,.08),rgba(5,10,18,.32));pointer-events:none;z-index:1}
-  .shine-badge{position:absolute;top:10px;left:10px;background:rgba(77,168,197,.94);color:#08161b;font-size:11px;font-weight:850;padding:5px 9px;border-radius:7px;letter-spacing:.02em;z-index:4}
-  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;text-decoration:none;font-size:13px;font-weight:800;padding:9px 12px;border-radius:9px;background:#17232c;color:var(--txt);border:1px solid var(--line);transition:background-color .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
-  .btn:hover{background:#1f3039;border-color:#526a76}
-  .btn:active{transform:translateY(1px)}
-  .btn.map{border-color:#4d6f8b}.btn.call{border-color:#3f875d}
-  .btn.wa{background:#123326;border-color:#2e8f5c;color:#9cf0bd}
-  .btn.book{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn.book:hover{filter:brightness(1.06)}
-  .pill{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:7px;background:rgba(217,169,63,.14);color:var(--gold);margin-left:auto}
-  .gline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
-  .gline label{font-size:12px;color:var(--mut);font-weight:750}
-  .gwrap{display:flex;align-items:center;gap:4px;min-height:44px;background:#0f181f;border:1px solid var(--line);border-radius:9px;padding:2px 10px;transition:border-color .16s ease,box-shadow .16s ease}
+  .card p{color:var(--mut);font-size:15px;margin-top:7px}
+  .card p b{color:#d9dde2}
+  .tagline{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--gold)}
+  .pill{display:inline-block;font-size:11px;font-weight:750;padding:3px 9px;border-radius:999px;background:rgba(220,171,69,.13);color:var(--gold);margin-left:6px;vertical-align:1px}
+
+  /* ===== Fotos ===== */
+  .photo{
+    position:relative;overflow:hidden;isolation:isolate;margin-top:12px;
+    aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line);background:#070d15;
+  }
+  .photo.sq{aspect-ratio:1/1}
+  .photo img{position:relative;z-index:2;width:100%;height:100%;display:block;object-fit:contain;object-position:center}
+  .has-blur-bg::before{
+    content:"";position:absolute;inset:-30px;z-index:0;
+    background-image:var(--photo-bg);background-size:cover;background-position:center;
+    filter:blur(18px) saturate(1.22) brightness(.62);transform:scale(1.1);
+  }
+  .has-blur-bg::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(5,10,18,.08),rgba(5,10,18,.34));
+  }
+  .badge{
+    position:absolute;top:10px;left:10px;z-index:4;font-size:11.5px;font-weight:750;
+    padding:5px 11px;border-radius:999px;color:#fff;
+    background:rgba(8,12,18,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border:.5px solid rgba(255,255,255,.18);
+  }
+
+  /* ===== Botones ===== */
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;
+    text-decoration:none;font-size:13.5px;font-weight:700;padding:9px 14px;border-radius:12px;
+    background:rgba(255,255,255,.06);color:var(--txt);border:1px solid var(--line);
+    user-select:none;-webkit-user-select:none;
+    transition:background-color .25s ease,border-color .25s ease,transform .35s var(--spring);
+  }
+  .btn:active{transform:scale(.96);transition-duration:.08s;transition-timing-function:ease-out}
+  .btn.map{border-color:rgba(95,150,185,.4)}
+  .btn.call{border-color:rgba(80,175,125,.4)}
+  .btn.wa{background:rgba(35,135,85,.16);border-color:rgba(70,180,120,.36);color:#9defbc}
+  .btn.book{background:var(--accent-soft);border-color:transparent;color:var(--accent-text)}
+  @media (hover:hover){
+    .count:hover{background:rgba(255,255,255,.09)}
+    .tab:hover{color:var(--txt)}
+    .btn:hover{background:rgba(255,255,255,.1);border-color:var(--line-strong)}
+    .btn.book:hover{filter:brightness(1.15)}
+  }
+
+  /* ===== Gasto por tarjeta ===== */
+  .gline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;padding-top:13px;border-top:.5px solid var(--line-strong)}
+  .gline label{font-size:13px;color:var(--mut);font-weight:650}
+  .gwrap{
+    display:flex;align-items:center;gap:5px;min-height:44px;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:2px 12px;
+    transition:border-color .2s ease,box-shadow .2s ease;
+  }
   .gwrap:focus-within{border-color:var(--gold);box-shadow:var(--focus)}
-  .gline input{width:92px;background:transparent;border:0;padding:9px 0;color:var(--gold);font-weight:850;font-size:16px;text-align:right}
-  .gline input:focus{outline:none;box-shadow:none}
-  .gline input::placeholder{color:#879aa4;font-weight:650}
-  .gline .eur{color:var(--gold);font-weight:850;font-size:14px}
-  .block{background:#121d24;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 5px 16px rgba(0,0,0,.14)}
-  .block h2{font-size:16px;font-weight:850;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
-  .kv:last-child{border-bottom:0}.kv .k{color:var(--mut)}.kv .v{font-weight:750;text-align:right}
-  .check{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+  .gline input{width:92px;background:transparent;border:0;padding:9px 0;color:var(--gold);font-weight:750;font-size:16px;text-align:right;font-variant-numeric:tabular-nums}
+  .gline input::placeholder{color:#7d8d99;font-weight:600}
+  .gline input[aria-invalid="true"]{color:var(--red)}
+  .gline .eur{color:var(--gold);font-weight:750;font-size:14px}
+
+  /* ===== Bloques (Gastos / Info) ===== */
+  .block{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:17px;margin-bottom:14px;box-shadow:var(--shadow-card)}
+  .block h2{font-size:16.5px;font-weight:750;margin-bottom:12px;display:flex;align-items:center;gap:8px;letter-spacing:-.01em}
+  .kv{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:.5px solid var(--line-strong);font-size:14px}
+  .kv:last-of-type{border-bottom:0}
+  .kv .k{color:var(--mut)}
+  .kv .v{font-weight:650;text-align:right}
+  .check{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:.5px solid var(--line-strong);cursor:pointer}
   .check:last-child{border-bottom:0}
-  .check input{appearance:none;width:22px;height:22px;flex:0 0 22px;margin-top:1px;border:2px solid var(--line);border-radius:7px;background:#0f181f;position:relative;cursor:pointer;transition:background-color .16s ease,border-color .16s ease,box-shadow .16s ease}
+  .check input{
+    appearance:none;width:24px;height:24px;flex:0 0 24px;margin-top:0;
+    border:1.5px solid var(--line-strong);border-radius:50%;background:transparent;position:relative;cursor:pointer;
+    transition:background-color .2s ease,border-color .2s ease;
+  }
   .check input:checked{background:var(--teal);border-color:var(--teal)}
-  .check input:checked::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#071b17;font-weight:900;font-size:14px}
-  .check span{font-size:14px}.check input:checked + span{color:var(--mut);text-decoration:line-through}
-  .note{font-size:12px;color:var(--mut);margin-top:10px;line-height:1.55}
-  .gitem{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .check input:checked::after{
+    content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:#06201b;font-weight:800;font-size:14px;animation:pop .35s var(--spring);
+  }
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  .check span{font-size:15px;padding-top:1px}
+  .check input:checked + span{color:var(--mut);text-decoration:line-through}
+  .note{font-size:12.5px;color:var(--mut);margin-top:10px;line-height:1.55}
+  .gitem{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:.5px solid var(--line-strong)}
   .gitem:last-child{border-bottom:0}
-  .gitem .gc{flex:1;font-weight:700;font-size:14px}
-  .gitem .gc small{display:block;font-size:11px;color:var(--mut);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
-  .gitem .gm{font-weight:850;color:var(--gold);font-size:15px}
-  .gempty{color:var(--mut);font-size:13px;text-align:center;padding:10px 0}
-  .gtotal{display:flex;justify-content:space-between;padding:7px 0;font-size:14px;color:var(--mut)}
-  .gtotal .v{font-weight:750;color:var(--txt)}
-  .gtotal.big{font-size:22px;font-weight:850;color:var(--txt);border-top:2px solid var(--line);margin-top:8px;padding-top:13px}
+  .gitem .gc{flex:1;font-weight:650;font-size:14px}
+  .gitem .gc small{display:block;font-size:11.5px;color:var(--mut);font-weight:600}
+  .gitem .gm{font-weight:750;color:var(--gold);font-size:15px;font-variant-numeric:tabular-nums}
+  .gempty{color:var(--mut);font-size:13.5px;text-align:center;padding:12px 0}
+  .gtotal{display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:var(--mut)}
+  .gtotal .v{font-weight:650;color:var(--txt);font-variant-numeric:tabular-nums}
+  .gtotal.big{font-size:21px;font-weight:800;color:var(--txt);border-top:1px solid var(--line-strong);margin-top:8px;padding-top:14px}
   .gtotal.big .v{color:var(--gold)}
-  .ftr{text-align:center;padding:28px 16px 8px;color:var(--mut);font-size:12px}.ftr b{color:var(--txt)}
+
+  /* ===== Footer / extras ===== */
+  .ftr{text-align:center;padding:26px 16px 8px;color:var(--mut);font-size:12.5px}
+  .ftr b{color:var(--txt)}
   .confetti{position:fixed;top:-30px;z-index:999;pointer-events:none;will-change:transform;animation:fall linear forwards}
   @keyframes fall{to{transform:translateY(108vh) rotate(360deg);opacity:0}}
-  .install{position:fixed;left:12px;right:12px;bottom:14px;z-index:60;max-width:660px;margin:0 auto;background:#121d24;border:1px solid var(--accent);border-radius:12px;padding:13px 15px;display:none;align-items:center;gap:12px;box-shadow:var(--shadow)}
-  .install.show{display:flex}.install .ix{font-size:24px}.install .it{flex:1;font-size:13px}.install .it b{font-size:14px}
-  .install button{border:1px solid transparent;cursor:pointer;font-weight:850;font-size:13px;padding:9px 13px;border-radius:9px;background:var(--accent);color:#fff}
-  .install .close{background:transparent;color:var(--mut);padding:7px 9px;border-color:transparent}
-  @media (min-width:760px){.hero{padding-top:34px}.tabs{justify-content:center}.wrap{padding-top:24px}.card,.block{padding:17px}}
-  @media (max-width:520px){body{padding-bottom:76px}.hero{padding-top:20px;padding-bottom:16px}.hero .tag{max-width:21rem;line-height:1.35}.hero h1{font-size:28px}.couplewrap{max-width:min(224px,62vw);margin-top:12px}.coupleframe{max-height:268px}.chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-width:330px;margin-inline:auto}.chip{min-width:0;text-align:center}.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;overflow:visible;padding:7px 8px}.tab{min-width:0;text-align:center;padding:8px 4px;font-size:12px;border-radius:9px}.tab .dot{display:block;font-size:10px;line-height:1;margin-bottom:2px}.tab .d{display:none}.wrap{padding-inline:14px}.tl{padding-left:30px}.ev::before{left:-25px}.gline{align-items:stretch;flex-direction:column;gap:8px}.gwrap{align-self:flex-start}.kv{flex-direction:column;gap:3px}.kv .v{text-align:left}.btn{flex:1 1 auto}.install{align-items:flex-start}.install .ix{display:none}}
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  .install{
+    position:fixed;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));
+    bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;max-width:640px;margin:0 auto;
+    background:rgba(18,24,33,.92);-webkit-backdrop-filter:saturate(1.8) blur(20px);backdrop-filter:saturate(1.8) blur(20px);
+    border:1px solid var(--line-strong);border-radius:18px;padding:13px 15px;
+    display:none;align-items:center;gap:12px;box-shadow:0 18px 44px rgba(0,0,0,.45);
+  }
+  .install.show{display:flex;animation:sheetIn .5s var(--ease)}
+  @keyframes sheetIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .install .ix{font-size:24px}
+  .install .it{flex:1;font-size:13px}
+  .install .it b{font-size:14px}
+  .install button{
+    border:1px solid transparent;font-weight:750;font-size:13.5px;min-height:44px;padding:9px 16px;border-radius:12px;
+    background:rgba(224,82,77,.18);color:#ff9d96;transition:transform .3s var(--spring);
+  }
+  .install button:active{transform:scale(.95);transition-duration:.08s;transition-timing-function:ease-out}
+  .install .close{background:transparent;color:var(--mut);min-width:44px;padding:9px}
+
+  @media (min-width:760px){
+    .hero{padding-top:calc(36px + env(safe-area-inset-top))}
+    .wrap{padding-top:26px}
+    .card,.block{padding:18px}
+  }
+  @media (max-width:520px){
+    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+    .hero{padding-top:calc(22px + env(safe-area-inset-top));padding-bottom:18px}
+    .hero .tag{max-width:21rem;line-height:1.35}
+    .hero h1{font-size:29px}
+    .hero-photo{width:min(228px,62vw);max-height:274px;margin-top:14px}
+    .chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-width:330px;margin-inline:auto}
+    .chip{min-width:0;text-align:center}
+    .tab{font-size:12px;padding:7px 2px}
+    .tab .d{display:none}
+    .wrap{padding-inline:max(14px,env(safe-area-inset-left))}
+    .tl{padding-left:28px}
+    .ev::before{left:-24px}
+    .dayhead .t2{font-size:19px}
+    .dayhead .big{font-size:40px;min-width:42px}
+    .kv{flex-direction:column;gap:3px}
+    .kv .v{text-align:left}
+    .btn{flex:1 1 auto}
+    .install{align-items:flex-start}
+    .install .ix{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="sunray"></div>
   <span class="tag">🏁 Finde de cumpleaños · Gran Canaria</span>
   <h1>Cumple de <span class="em">Diego</span> 🎂</h1>
   <div class="sub">19 – 21 junio 2026 · de Tenerife en ferry 🚗</div>
-  <div class="couplewrap">
-    <div class="coupleframe"><img class="couple" src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" fetchpriority="high" decoding="async" onerror="this.closest('.couplewrap').style.display='none'"></div>
-    <div class="couplecap">Diego &amp; la bestia 🌅🏎️</div>
+  <div class="hero-photo" id="heroPhoto">
+    <img src="img/portada.jpg" alt="Diego con el Mercedes al atardecer" fetchpriority="high" decoding="async" onerror="var w=this.closest('.hero-photo');w.style.display='none';if(w.nextElementSibling)w.nextElementSibling.style.display='none'">
   </div>
-  <button class="count" id="count" type="button" aria-label="Lanzar confeti de cumpleaños">⏳ Faltan <b id="cd">–</b> días</button>
+  <div class="cap">Diego &amp; la bestia 🌅🏎️</div>
+  <button class="count" id="count" type="button">⏳ Faltan <b>–</b> días</button>
   <div class="chips"><span class="chip">⛴️ Ferry + coche</span><span class="chip">🏨 AC Iberia</span><span class="chip">🏎️ La bestia a bordo</span></div>
 </header>
 
-<nav class="tabs" id="tabs" role="tablist" aria-label="Días y secciones del viaje">
-  <button class="tab active" id="tab-vie" type="button" role="tab" aria-selected="true" aria-controls="vie" data-p="vie"><span class="dot">●</span> Viernes<span class="d">Motor + Cumple</span></button>
-  <button class="tab" id="tab-sab" type="button" role="tab" aria-selected="false" aria-controls="sab" data-p="sab"><span class="dot">●</span> Sábado<span class="d">Spa + Holiday World</span></button>
-  <button class="tab" id="tab-dom" type="button" role="tab" aria-selected="false" aria-controls="dom" data-p="dom"><span class="dot">●</span> Domingo<span class="d">Mar + Vuelta</span></button>
-  <button class="tab" id="tab-gastos" type="button" role="tab" aria-selected="false" aria-controls="gastos" data-p="gastos"><span class="dot">●</span> Gastos<span class="d">Cuentas del viaje</span></button>
-  <button class="tab" id="tab-info" type="button" role="tab" aria-selected="false" aria-controls="info" data-p="info"><span class="dot">●</span> Info<span class="d">Datos + Reservas</span></button>
+<nav class="nav" id="nav">
+  <div class="seg" id="seg" role="tablist" aria-label="Días y secciones del viaje">
+    <div class="seg-hl" id="seghl" aria-hidden="true"></div>
+    <button class="tab" id="tab-vie" type="button" role="tab" aria-selected="true" aria-controls="vie" data-p="vie">Viernes<span class="d">Motor + Cumple</span></button>
+    <button class="tab" id="tab-sab" type="button" role="tab" aria-selected="false" aria-controls="sab" data-p="sab">Sábado<span class="d">Spa + Holiday World</span></button>
+    <button class="tab" id="tab-dom" type="button" role="tab" aria-selected="false" aria-controls="dom" data-p="dom">Domingo<span class="d">Mar + Vuelta</span></button>
+    <button class="tab" id="tab-gastos" type="button" role="tab" aria-selected="false" aria-controls="gastos" data-p="gastos">Gastos<span class="d">Cuentas del viaje</span></button>
+    <button class="tab" id="tab-info" type="button" role="tab" aria-selected="false" aria-controls="info" data-p="info">Info<span class="d">Datos + Reservas</span></button>
+  </div>
 </nav>
 
-<div class="wrap">
+<main class="wrap">
 
   <!-- VIERNES -->
   <section class="panel active" id="vie" role="tabpanel" aria-labelledby="tab-vie" style="--accent:var(--red)">
-    <div class="dayhead"><div class="big">19</div><div><div class="t1">Viernes · Sur de la isla</div><div class="t2">🎂 Cumpleañero al volante 🏎️</div></div></div>
+    <div class="dayhead"><div class="big">19</div><div><div class="t1">Viernes · Sur de la isla</div><h2 class="t2">🎂 Cumpleañero al volante 🏎️</h2></div></div>
     <div class="tl">
       <div class="ev"><div class="time">11:40</div><div class="card"><h3><span class="ic">⛴️</span> Pisan Gran Canaria</h3>
         <p>Llegan en el ferry y bajan a <b>la bestia</b> por la rampa con todo el orgullo. Directos al sur, sin paradas para selfies, que el reloj viene apretando. 🏃🏻</p>
-        <img class="ph" src="img/ferry.jpg" alt="Ferry llegando a Gran Canaria" loading="lazy">
-        <img class="ph" src="img/coche-lado.jpg" alt="El Mercedes de lado" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Puerto+de+Las+Palmas" target="_blank" rel="noopener">📍 Puerto</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v1" data-day="Viernes" data-label="Llegada / ferry" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/ferry.jpg" alt="Ferry llegando a Gran Canaria" loading="lazy" decoding="async"></figure>
+        <figure class="photo"><img src="img/coche-lado.jpg" alt="El Mercedes de lado" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Puerto+de+Las+Palmas" target="_blank" rel="noopener">Puerto</a></div>
+        <div class="gline"><label for="g-v1">Gasto<span class="sr"> — Llegada / ferry</span></label><span class="gwrap"><input id="g-v1" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v1" data-day="Viernes" data-label="Llegada / ferry" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">12:30 <span class="pill">cita confirmada</span></div><div class="card"><h3><span class="ic">🏎️</span> El platazo del cumple</h3>
-        <p>Un <b>Ferrari o un Porsche 911</b> según disponibilidad, <b>10 vueltas de Mazda MX5</b> y vueltas rápidas de copiloto en el Ariel Atom. Diego conduce; Darimar también tiene su momentazo si confirman reparto con Chris. 🔥</p>
-        <div class="phwrap"><img class="ph race" src="img/ferrari.jpg" alt="Ferrari de Supercar Gran Canaria en el circuito" loading="lazy"><span class="race-badge">🏁 MODO CARRERA</span></div>
-        <img class="ph" src="img/coche-frente.jpg" alt="Tu Mercedes, listo para pista" loading="lazy">
+        <p>Un <b>Ferrari o un Porsche 911</b> según disponibilidad, <b>10 vueltas de Mazda MX5</b> y vueltas rápidas de copiloto en el Ariel Atom. Diego conduce y Darimar ya tiene <b>confirmadas sus 2 vueltas en el Atom</b> con Chris. 🔥</p>
+        <figure class="photo"><img src="img/ferrari.jpg" alt="Ferrari de Supercar Gran Canaria en el circuito" loading="lazy" decoding="async"><span class="badge">🏁 Modo carrera</span></figure>
+        <figure class="photo"><img src="img/coche-frente.jpg" alt="El Mercedes aparcado, listo para pista" loading="lazy" decoding="async"></figure>
         <span class="tagline">✅ Chris te guarda margen: si llegas a las 12:45, te esperan</span>
-        <div class="btns"><a class="btn book" href="https://supercargrancanaria.es/" target="_blank" rel="noopener">🏁 Paquetes</a><a class="btn map" href="https://www.google.com/maps/search/Circuito+de+Maspalomas+El+Berriel" target="_blank" rel="noopener">📍 Circuito</a><a class="btn call" href="tel:+34672447920">📞 Chris</a><a class="btn wa" href="https://wa.me/34672447920" target="_blank" rel="noopener">💬 WhatsApp</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v2" data-day="Viernes" data-label="Motor (Supercar)" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <div class="btns"><a class="btn book" href="https://supercargrancanaria.es/" target="_blank" rel="noopener">🏁 Paquetes</a><a class="btn map" href="https://www.google.com/maps/search/Circuito+de+Maspalomas+El+Berriel" target="_blank" rel="noopener">Circuito</a><a class="btn call" href="tel:+34672447920">Llamar a Chris</a><a class="btn wa" href="https://wa.me/34672447920" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+        <div class="gline"><label for="g-v2">Gasto<span class="sr"> — Motor (Supercar)</span></label><span class="gwrap"><input id="g-v2" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v2" data-day="Viernes" data-label="Motor (Supercar)" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">14:30</div><div class="card"><h3><span class="ic">🍔</span> Recarga rápida</h3>
         <p>Algo de comer cerca de Maspalomas, sin enrollarse. Que la tarde viene cargada de arena y atardecer.</p>
-        <img class="ph" src="img/comida.jpg" alt="Comida" loading="lazy">
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v3" data-day="Viernes" data-label="Comida mediodía" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/comida.jpg" alt="Mesa con platos de comida" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-v3">Gasto<span class="sr"> — Comida mediodía</span></label><span class="gwrap"><input id="g-v3" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v3" data-day="Viernes" data-label="Comida mediodía" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">15:30</div><div class="card"><h3><span class="ic">🏖️</span> Dunas + Playa del Inglés</h3>
         <p>Las dunas están aquí al lado del circuito. Atardecer de portada, baño y arena para llevar de recuerdo. 😏</p>
-        <div class="phwrap"><img class="ph sun-frame" src="img/playa.jpg" alt="Diego y Darimar en la playa" loading="lazy"><div class="suns"><span style="left:9%;animation-delay:0s">☀️</span><span style="left:28%;animation-delay:1.3s">🌞</span><span style="left:48%;animation-delay:.6s">☀️</span><span style="left:68%;animation-delay:1.9s">🌞</span><span style="left:87%;animation-delay:1s">☀️</span></div></div>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Playa+del+Ingles+Maspalomas" target="_blank" rel="noopener">📍 Playa del Inglés</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v4" data-day="Viernes" data-label="Playa / dunas" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/playa.jpg" alt="Diego y Darimar en la playa" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Playa+del+Ingles+Maspalomas" target="_blank" rel="noopener">Playa del Inglés</a></div>
+        <div class="gline"><label for="g-v4">Gasto<span class="sr"> — Playa / dunas</span></label><span class="gwrap"><input id="g-v4" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v4" data-day="Viernes" data-label="Playa / dunas" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">18:30</div><div class="card"><h3><span class="ic">🏨</span> Check-in y a brillar</h3>
         <p>Suben a Las Palmas (~50 min) y caen en el <b>AC Iberia</b>. Ducha, ropa limpia y a ponerse guapos para la cena grande.</p>
-        <img class="ph" src="img/hotel.jpg" alt="AC Hotel Iberia Las Palmas" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/AC+Hotel+Iberia+Las+Palmas" target="_blank" rel="noopener">📍 Hotel</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v5" data-day="Viernes" data-label="Hotel / extras" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/hotel.jpg" alt="AC Hotel Iberia Las Palmas" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/AC+Hotel+Iberia+Las+Palmas" target="_blank" rel="noopener">Hotel</a></div>
+        <div class="gline"><label for="g-v5">Gasto<span class="sr"> — Hotel / extras</span></label><span class="gwrap"><input id="g-v5" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v5" data-day="Viernes" data-label="Hotel / extras" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">19:30</div><div class="card"><h3><span class="ic">🛍️</span> Alisios (si queda pila)</h3>
         <p>El centro comercial <b>más grande</b> de la isla, a 15 min. Una vuelta de compras y a cenar.</p>
-        <img class="ph" src="img/alisios.jpg" alt="Centro Comercial Alisios" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+Alisios+Las+Palmas" target="_blank" rel="noopener">📍 Alisios</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v6" data-day="Viernes" data-label="Compras Alisios" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/alisios.jpg" alt="Centro Comercial Alisios" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+Alisios+Las+Palmas" target="_blank" rel="noopener">Alisios</a></div>
+        <div class="gline"><label for="g-v6">Gasto<span class="sr"> — Compras Alisios</span></label><span class="gwrap"><input id="g-v6" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v6" data-day="Viernes" data-label="Compras Alisios" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">21:00</div><div class="card"><h3><span class="ic">🎂</span> La cena del cumpleañero</h3>
         <p>Carne premium en <b>El Churrasco</b> (Angus, Rubia Gallega). Detalle de flores para Dari y noche redonda. Reserven, que vuela.</p>
-        <div class="phwrap"><img class="ph fit-square heart-frame" src="img/dari-flores.jpg" alt="Darimar con flores" loading="lazy"><div class="hearts"><span style="left:8%;animation-delay:0s">❤️</span><span style="left:24%;animation-delay:.9s">💕</span><span style="left:40%;animation-delay:1.7s">💖</span><span style="left:56%;animation-delay:.5s">❤️</span><span style="left:72%;animation-delay:2.1s">💕</span><span style="left:88%;animation-delay:1.3s">💖</span></div></div>
+        <figure class="photo sq"><img src="img/dari-flores.jpg" alt="Darimar con un ramo de flores" loading="lazy" decoding="async"></figure>
         <span class="tagline">🌹 Sorpresa romántica</span>
-        <div class="btns"><a class="btn book" href="https://www.elchurrascorestaurante.com/reservas/" target="_blank" rel="noopener">🍽️ Reservar mesa</a><a class="btn map" href="https://www.google.com/maps/search/Restaurante+El+Churrasco+Las+Palmas" target="_blank" rel="noopener">📍 El Churrasco</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v7" data-day="Viernes" data-label="Cena de cumple" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <div class="btns"><a class="btn book" href="https://www.elchurrascorestaurante.com/reservas/" target="_blank" rel="noopener">🍽️ Reservar mesa</a><a class="btn map" href="https://www.google.com/maps/search/Restaurante+El+Churrasco+Las+Palmas" target="_blank" rel="noopener">El Churrasco</a></div>
+        <div class="gline"><label for="g-v7">Gasto<span class="sr"> — Cena de cumple</span></label><span class="gwrap"><input id="g-v7" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v7" data-day="Viernes" data-label="Cena de cumple" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">23:00</div><div class="card"><h3><span class="ic">🍸</span> Copa con los pies en la arena</h3>
         <p>Última copa paseando <b>Las Canteras</b>, casi tocando el agua. Mimos incluidos. 🌙</p>
-        <div class="phwrap"><img class="ph heart-frame" src="img/beso.jpg" alt="Diego y Darimar" loading="lazy"><div class="hearts"><span style="left:12%;animation-delay:.3s">❤️</span><span style="left:30%;animation-delay:1.4s">💕</span><span style="left:50%;animation-delay:.7s">💖</span><span style="left:68%;animation-delay:2s">❤️</span><span style="left:86%;animation-delay:1s">💕</span></div></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="v8" data-day="Viernes" data-label="Copas" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/beso.jpg" alt="Diego y Darimar dándose un beso" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-v8">Gasto<span class="sr"> — Copas</span></label><span class="gwrap"><input id="g-v8" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="v8" data-day="Viernes" data-label="Copas" placeholder="0"><span class="eur">€</span></span></div></div></div>
     </div>
   </section>
 
   <!-- SABADO -->
-  <section class="panel" id="sab" role="tabpanel" aria-labelledby="tab-sab" style="--accent:var(--teal)">
-    <div class="dayhead"><div class="big">20</div><div><div class="t1">Sábado · Mimos y feria</div><div class="t2">💆🏻 Spa de día, parque de noche 🎢</div></div></div>
+  <section class="panel" id="sab" role="tabpanel" aria-labelledby="tab-sab" style="--accent:var(--teal);--accent-soft:rgba(47,185,166,.15);--accent-text:#7fe3d2" hidden>
+    <div class="dayhead"><div class="big">20</div><div><div class="t1">Sábado · Mimos y feria</div><h2 class="t2">💆🏻 Spa de día, parque de noche 🎢</h2></div></div>
     <div class="tl">
       <div class="ev"><div class="time">09:30</div><div class="card"><h3><span class="ic">🧼</span> Ritual sagrado: lavar la bestia</h3>
         <p>Lo primero: dejar el Mercedes <b>como un espejo</b>. Diego la lava siempre, y hacerlo en una gasolinera canaria le hacía ilusión. ✨</p>
-        <div class="shinewrap"><img class="ph fit-square" src="img/lavando.jpg" alt="Lavando el Mercedes" loading="lazy"><span class="shine-badge">✨ Recién lavada</span></div>
+        <figure class="photo sq"><img src="img/lavando.jpg" alt="Lavando el Mercedes en el túnel de lavado" loading="lazy" decoding="async"><span class="badge">✨ Recién lavada</span></figure>
         <span class="tagline">💦 Tradición innegociable</span>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s1" data-day="Sábado" data-label="Lavar el coche" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <div class="gline"><label for="g-s1">Gasto<span class="sr"> — Lavar el coche</span></label><span class="gwrap"><input id="g-s1" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s1" data-day="Sábado" data-label="Lavar el coche" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">10:30 <span class="pill">reservar</span></div><div class="card"><h3><span class="ic">💆🏻</span> Spa en pareja</h3>
         <p>Masaje en pareja, jacuzzi y sauna en el <b>Bull Reina Isabel</b>, primera línea de Las Canteras. <b>Llamen para confirmar cabina doble.</b></p>
-        <div class="phwrap"><img class="ph spa-frame" src="img/dari.jpg" alt="Darimar" loading="lazy"><div class="bubbles"><span style="left:12%;width:13px;height:13px;animation-delay:0s"></span><span style="left:26%;width:9px;height:9px;animation-delay:1.1s"></span><span style="left:40%;width:17px;height:17px;animation-delay:.5s"></span><span style="left:55%;width:11px;height:11px;animation-delay:1.8s"></span><span style="left:68%;width:8px;height:8px;animation-delay:.9s"></span><span style="left:80%;width:15px;height:15px;animation-delay:2.2s"></span><span style="left:90%;width:10px;height:10px;animation-delay:1.4s"></span></div></div>
+        <figure class="photo"><img src="img/dari.jpg" alt="Darimar sonriendo en una terraza" loading="lazy" decoding="async"></figure>
         <span class="tagline">🤍 Modo relax activado</span>
-        <div class="btns"><a class="btn book" href="https://www.bullhotels.com/spa/" target="_blank" rel="noopener">💆🏻 Info spa</a><a class="btn call" href="tel:+34928260100">📞 Llamar</a><a class="btn map" href="https://www.google.com/maps/search/Hotel+Bull+Reina+Isabel+Spa+Las+Palmas" target="_blank" rel="noopener">📍 Mapa</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s2" data-day="Sábado" data-label="Spa en pareja" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <div class="btns"><a class="btn book" href="https://www.bullhotels.com/spa/" target="_blank" rel="noopener">💆🏻 Info spa</a><a class="btn call" href="tel:+34928260100">Llamar</a><a class="btn map" href="https://www.google.com/maps/search/Hotel+Bull+Reina+Isabel+Spa+Las+Palmas" target="_blank" rel="noopener">Mapa</a></div>
+        <div class="gline"><label for="g-s2">Gasto<span class="sr"> — Spa en pareja</span></label><span class="gwrap"><input id="g-s2" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s2" data-day="Sábado" data-label="Spa en pareja" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">12:30</div><div class="card"><h3><span class="ic">🛍️</span> Las Arenas, al ladito</h3>
         <p>Saliendo del spa lo tienen enfrente: <b>Las Arenas</b>, frente a la playa. Tiendas, terrazas con vistas al mar y un bocado.</p>
-        <img class="ph" src="img/arenas.jpg" alt="Centro Comercial Las Arenas" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank" rel="noopener">📍 Las Arenas</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s3" data-day="Sábado" data-label="Compras Las Arenas" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/arenas.jpg" alt="Centro Comercial Las Arenas" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+Las+Arenas+Las+Palmas" target="_blank" rel="noopener">Las Arenas</a></div>
+        <div class="gline"><label for="g-s3">Gasto<span class="sr"> — Compras Las Arenas</span></label><span class="gwrap"><input id="g-s3" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s3" data-day="Sábado" data-label="Compras Las Arenas" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">15:00</div><div class="card"><h3><span class="ic">🚗</span> Otra vez al sur</h3>
         <p>De vuelta al volante de <b>la bestia</b>, rumbo Maspalomas. <b>45 minutos</b> de autovía: pongan buena música. 🎶</p>
-        <img class="ph" src="img/conduciendo.jpg" alt="Diego conduciendo" loading="lazy">
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s4" data-day="Sábado" data-label="Gasolina / trayecto" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/conduciendo.jpg" alt="Diego al volante" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-s4">Gasto<span class="sr"> — Gasolina / trayecto</span></label><span class="gwrap"><input id="g-s4" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s4" data-day="Sábado" data-label="Gasolina / trayecto" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">16:00 <span class="pill">entradas</span></div><div class="card"><h3><span class="ic">🎢</span> Holiday World Maspalomas</h3>
         <p>El <b>único parque de atracciones de Canarias</b>: abre a las 16:00 y la lía hasta pasada la medianoche. <b>El cambio que pidió Darimar.</b> Entrada ~13€, mejor online.</p>
-        <img class="ph" src="img/holidayworld.jpg" alt="Holiday World Maspalomas de noche" loading="lazy">
+        <figure class="photo"><img src="img/holidayworld.jpg" alt="Holiday World Maspalomas de noche" loading="lazy" decoding="async"></figure>
         <span class="tagline">🎟️ Ojo: solo abre por la tarde-noche</span>
-        <div class="btns"><a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank" rel="noopener">🎟️ Entradas</a><a class="btn map" href="https://www.google.com/maps/search/Holiday+World+Maspalomas" target="_blank" rel="noopener">📍 Mapa</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s5" data-day="Sábado" data-label="Holiday World" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <div class="btns"><a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank" rel="noopener">🎟️ Entradas</a><a class="btn map" href="https://www.google.com/maps/search/Holiday+World+Maspalomas" target="_blank" rel="noopener">Mapa</a></div>
+        <div class="gline"><label for="g-s5">Gasto<span class="sr"> — Holiday World</span></label><span class="gwrap"><input id="g-s5" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s5" data-day="Sábado" data-label="Holiday World" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">21:00</div><div class="card"><h3><span class="ic">🍔</span> Cena de premio</h3>
         <p>Cena flexible después de Holiday World: burger premium o pizza cerca de Maspalomas. Si vuelven pronto a Las Palmas, All or Nothing también entra en la quiniela. 🍔</p>
-        <img class="ph" src="img/burger.jpg" alt="Burger premium" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Burger+premium+Maspalomas" target="_blank" rel="noopener">📍 Burger sur</a><a class="btn map" href="https://www.google.com/maps/search/Pizza+Maspalomas" target="_blank" rel="noopener">📍 Pizza sur</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="s6" data-day="Sábado" data-label="Cena sábado" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/burger.jpg" alt="Hamburguesa premium con guarnición" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Burger+premium+Maspalomas" target="_blank" rel="noopener">Burger sur</a><a class="btn map" href="https://www.google.com/maps/search/Pizza+Maspalomas" target="_blank" rel="noopener">Pizza sur</a></div>
+        <div class="gline"><label for="g-s6">Gasto<span class="sr"> — Cena sábado</span></label><span class="gwrap"><input id="g-s6" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="s6" data-day="Sábado" data-label="Cena sábado" placeholder="0"><span class="eur">€</span></span></div></div></div>
     </div>
   </section>
 
   <!-- DOMINGO -->
-  <section class="panel" id="dom" role="tabpanel" aria-labelledby="tab-dom" style="--accent:var(--cyan)">
-    <div class="dayhead"><div class="big">21</div><div><div class="t1">Domingo · Suroeste</div><div class="t2">🐬 Delfines, compras &amp; vuelta ⛴️</div></div></div>
+  <section class="panel" id="dom" role="tabpanel" aria-labelledby="tab-dom" style="--accent:var(--cyan);--accent-soft:rgba(84,174,203,.15);--accent-text:#9bd6ec" hidden>
+    <div class="dayhead"><div class="big">21</div><div><div class="t1">Domingo · Suroeste</div><h2 class="t2">🐬 Delfines, compras &amp; vuelta ⛴️</h2></div></div>
     <div class="tl">
       <div class="ev"><div class="time">08:30</div><div class="card"><h3><span class="ic">🧳</span> Madrugón con premio</h3>
         <p>Check-out antes de las 12:00, pero hoy se madruga: <b>maletas a la bestia</b> y a exprimir las últimas horas a tope.</p>
-        <img class="ph fit-square" src="img/madrugon.jpg" alt="Madrugón del domingo" loading="lazy">
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d1" data-day="Domingo" data-label="Desayuno / madrugón" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo sq"><img src="img/madrugon.jpg" alt="Recién levantados, listos para salir" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-d1">Gasto<span class="sr"> — Desayuno / madrugón</span></label><span class="gwrap"><input id="g-d1" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d1" data-day="Domingo" data-label="Desayuno / madrugón" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">09:00</div><div class="card"><h3><span class="ic">🛣️</span> Rumbo al suroeste</h3>
         <p>Una hora larga de carretera hasta <b>Puerto Rico</b> (~1h). Las mejores vistas de costa desde el asiento del conductor. 🌊</p>
-        <img class="ph fit-square" src="img/conduciendo2.jpg" alt="Conduciendo por la carretera" loading="lazy">
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d2" data-day="Domingo" data-label="Gasolina" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo sq"><img src="img/conduciendo2.jpg" alt="Conduciendo por la autovía de la costa" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-d2">Gasto<span class="sr"> — Gasolina</span></label><span class="gwrap"><input id="g-d2" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d2" data-day="Domingo" data-label="Gasolina" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">10:30/11:00 <span class="pill">reservar</span></div><div class="card"><h3><span class="ic">🐬</span> Catamarán + delfines</h3>
         <p>Barco desde <b>Puerto Rico</b> (~2h), sol, baño en alta mar y delfines con <b>alta probabilidad</b> según operador.</p>
-        <img class="ph fit-square wave-frame" src="img/delfines.jpg" alt="Catamarán con delfines" loading="lazy">
-        <div class="btns"><a class="btn book" href="https://clubcanary.com/gran-canaria-multiacuatic-catamaran/" target="_blank" rel="noopener">🐬 Reservar delfines</a><a class="btn map" href="https://www.google.com/maps/search/Puerto+Rico+Gran+Canaria+puerto" target="_blank" rel="noopener">📍 Puerto Rico</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d3" data-day="Domingo" data-label="Catamarán + delfines" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo sq"><img src="img/delfines.jpg" alt="Catamarán con delfines saltando" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn book" href="https://clubcanary.com/gran-canaria-multiacuatic-catamaran/" target="_blank" rel="noopener">🐬 Reservar delfines</a><a class="btn map" href="https://www.google.com/maps/search/Puerto+Rico+Gran+Canaria+puerto" target="_blank" rel="noopener">Puerto Rico</a></div>
+        <div class="gline"><label for="g-d3">Gasto<span class="sr"> — Catamarán + delfines</span></label><span class="gwrap"><input id="g-d3" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d3" data-day="Domingo" data-label="Catamarán + delfines" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">13:00</div><div class="card"><h3><span class="ic">🚤</span> Puerto de Mogán</h3>
         <p>La <b>"pequeña Venecia"</b> canaria: canales, puentes y terracitas. Comer casi con los pies sobre el agua.</p>
-        <img class="ph" src="img/mogan.jpg" alt="Puerto de Mogán" loading="lazy">
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Puerto+de+Mogan+Gran+Canaria" target="_blank" rel="noopener">📍 Mogán</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d4" data-day="Domingo" data-label="Comida en Mogán" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/mogan.jpg" alt="Canales y casas de Puerto de Mogán" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Puerto+de+Mogan+Gran+Canaria" target="_blank" rel="noopener">Mogán</a></div>
+        <div class="gline"><label for="g-d4">Gasto<span class="sr"> — Comida en Mogán</span></label><span class="gwrap"><input id="g-d4" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d4" data-day="Domingo" data-label="Comida en Mogán" placeholder="0"><span class="eur">€</span></span></div></div></div>
       <div class="ev"><div class="time">17:00</div><div class="card"><h3><span class="ic">🛍️</span> El Muelle, última misión</h3>
         <p>De vuelta en Las Palmas, compras finales en <b>El Muelle</b>, <b>pegado al puerto</b> (al lado del acuario Poema del Mar).</p>
-        <img class="ph" src="img/muelle.jpg" alt="Centro Comercial El Muelle" loading="lazy">
+        <figure class="photo"><img src="img/muelle.jpg" alt="Centro Comercial El Muelle" loading="lazy" decoding="async"></figure>
         <span class="tagline">🛒 A un paso del barco</span>
-        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+El+Muelle+Las+Palmas" target="_blank" rel="noopener">📍 El Muelle</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d5" data-day="Domingo" data-label="Compras El Muelle" placeholder="0"><span class="eur">€</span></span></div></div></div>
-      <div class="ev"><div class="time">18:30</div><div class="card"><h3><span class="ic">⛴️</span> Al barco sin carreras</h3>
-        <p>En el puerto <b>1h30 antes</b> para meter el coche con calma. Nada de llegar derrapando al embarque.</p>
-        <img class="ph" src="img/ferry.jpg" alt="Ferry en el puerto" loading="lazy">
-        <div class="btns"><a class="btn book" href="https://armastrasmediterranea.com/" target="_blank" rel="noopener">⛴️ Armas</a><a class="btn map" href="https://www.google.com/maps/search/Estacion+Maritima+Las+Palmas+Naviera+Armas" target="_blank" rel="noopener">📍 Estación marítima</a></div>
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d6" data-day="Domingo" data-label="Embarque / puerto" placeholder="0"><span class="eur">€</span></span></div></div></div>
-      <div class="ev"><div class="time">20:00</div><div class="card"><h3><span class="ic">🏁</span> Vuelta a casa</h3>
+        <div class="btns"><a class="btn map" href="https://www.google.com/maps/search/Centro+Comercial+El+Muelle+Las+Palmas" target="_blank" rel="noopener">El Muelle</a></div>
+        <div class="gline"><label for="g-d5">Gasto<span class="sr"> — Compras El Muelle</span></label><span class="gwrap"><input id="g-d5" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d5" data-day="Domingo" data-label="Compras El Muelle" placeholder="0"><span class="eur">€</span></span></div></div></div>
+      <div class="ev"><div class="time">19:30 <span class="pill">nuevo horario</span></div><div class="card"><h3><span class="ic">⛴️</span> Al barco sin carreras</h3>
+        <p>En el puerto <b>1h30 antes</b> para meter el coche con calma. Armas retrasó la salida a las <b>21:00</b>, así que hay una hora extra de margen. Nada de llegar derrapando al embarque.</p>
+        <figure class="photo"><img src="img/ferry.jpg" alt="Ferry en el puerto" loading="lazy" decoding="async"></figure>
+        <div class="btns"><a class="btn book" href="https://armastrasmediterranea.com/" target="_blank" rel="noopener">⛴️ Armas</a><a class="btn map" href="https://www.google.com/maps/search/Estacion+Maritima+Las+Palmas+Naviera+Armas" target="_blank" rel="noopener">Estación marítima</a></div>
+        <div class="gline"><label for="g-d6">Gasto<span class="sr"> — Embarque / puerto</span></label><span class="gwrap"><input id="g-d6" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d6" data-day="Domingo" data-label="Embarque / puerto" placeholder="0"><span class="eur">€</span></span></div></div></div>
+      <div class="ev"><div class="time">21:00</div><div class="card"><h3><span class="ic">🏁</span> Vuelta a casa</h3>
         <p>Zarpan a Tenerife con el depósito de recuerdos a tope. Cumpleaños de matrícula de honor. 🎉</p>
-        <img class="ph" src="img/tenerife.jpg" alt="El Teide, de vuelta a casa" loading="lazy">
-        <div class="gline"><label>💶 ¿Cuánto gastaron aquí?</label><span class="gwrap"><input type="number" min="0" step="0.01" inputmode="decimal" data-g="d7" data-day="Domingo" data-label="Vuelta / extras" placeholder="0"><span class="eur">€</span></span></div></div></div>
+        <figure class="photo"><img src="img/tenerife.jpg" alt="El Teide al fondo, de vuelta a casa" loading="lazy" decoding="async"></figure>
+        <div class="gline"><label for="g-d7">Gasto<span class="sr"> — Vuelta / extras</span></label><span class="gwrap"><input id="g-d7" type="text" inputmode="decimal" autocomplete="off" pattern="[0-9]+([,.][0-9]{1,2})?" data-g="d7" data-day="Domingo" data-label="Vuelta / extras" placeholder="0"><span class="eur">€</span></span></div></div></div>
     </div>
   </section>
 
   <!-- GASTOS -->
-  <section class="panel" id="gastos" role="tabpanel" aria-labelledby="tab-gastos" style="--accent:var(--gold)">
-    <div class="dayhead"><div class="big">💶</div><div><div class="t1">Cuentas del viaje</div><div class="t2">Total de gastos</div></div></div>
+  <section class="panel" id="gastos" role="tabpanel" aria-labelledby="tab-gastos" style="--accent:var(--gold);--accent-soft:rgba(220,171,69,.15);--accent-text:#eac87e" hidden>
+    <div class="dayhead"><div class="big">💶</div><div><div class="t1">Cuentas del viaje</div><h2 class="t2">Total de gastos</h2></div></div>
     <div class="block"><h2>🧾 Lo apuntado en cada parada</h2><div id="g-list"><div class="gempty">Apunten el gasto en cada tarjeta del itinerario y aquí se suma solo. 😄</div></div></div>
     <div class="block"><h2>📊 Totales</h2><div id="g-totals"></div></div>
-    <p class="note">💡 Los gastos se escriben en la casilla 💶 de cada actividad (Viernes/Sábado/Domingo) y se guardan en este móvil. Aquí ven el total por día y del viaje entero.</p>
+    <p class="note">💡 Los gastos se escriben en la casilla de cada actividad (Viernes/Sábado/Domingo) y se guardan en este móvil. Aquí ven el total por día y del viaje entero.</p>
   </section>
 
   <!-- INFO -->
-  <section class="panel" id="info" role="tabpanel" aria-labelledby="tab-info" style="--accent:var(--gold)">
-    <div class="dayhead"><div class="big">ℹ️</div><div><div class="t1">Lo importante</div><div class="t2">Datos y reservas</div></div></div>
+  <section class="panel" id="info" role="tabpanel" aria-labelledby="tab-info" style="--accent:var(--gold);--accent-soft:rgba(220,171,69,.15);--accent-text:#eac87e" hidden>
+    <div class="dayhead"><div class="big">ℹ️</div><div><div class="t1">Lo importante</div><h2 class="t2">Datos y reservas</h2></div></div>
     <div class="block"><h2>⛴️ Ferry (Naviera Armas)</h2>
       <div class="kv"><span class="k">Ida</span><span class="v">Vie 19 · 10:00 → 11:40<br>Tenerife → Las Palmas</span></div>
-      <div class="kv"><span class="k">Vuelta</span><span class="v">Dom 21 · 20:00<br>Las Palmas → Tenerife</span></div>
+      <div class="kv"><span class="k">Vuelta</span><span class="v">Dom 21 · 21:00 (nuevo horario)<br>Las Palmas → Tenerife</span></div>
       <div class="kv"><span class="k">Ref. Armas</span><span class="v">23913010</span></div>
       <div class="kv"><span class="k">Ref. Direct Ferries</span><span class="v">DFP196673443</span></div>
       <div class="btns" style="margin-top:12px"><a class="btn book" href="https://armastrasmediterranea.com/" target="_blank" rel="noopener">⛴️ Gestionar ferry</a></div></div>
@@ -312,12 +471,12 @@
       <div class="kv"><span class="k">AC Iberia by Marriott</span><span class="v">Av. Alcalde J. Ramírez<br>Bethencourt, 8</span></div>
       <div class="kv"><span class="k">Check-in / out</span><span class="v">Vie 15:00 / Dom 12:00</span></div>
       <div class="kv"><span class="k">Confirmación</span><span class="v">5298904828 · PIN 8900</span></div>
-      <div class="btns" style="margin-top:12px"><a class="btn book" href="https://www.marriott.com/es/hotels/lpaac-ac-hotel-iberia-las-palmas/overview/" target="_blank" rel="noopener">🏨 Marriott</a><a class="btn call" href="tel:+34928361133">📞 Llamar hotel</a><a class="btn map" href="https://www.google.com/maps/search/AC+Hotel+Iberia+Las+Palmas" target="_blank" rel="noopener">📍 Mapa</a></div></div>
+      <div class="btns" style="margin-top:12px"><a class="btn book" href="https://www.marriott.com/es/hotels/lpaac-ac-hotel-iberia-las-palmas/overview/" target="_blank" rel="noopener">🏨 Marriott</a><a class="btn call" href="tel:+34928361133">Llamar hotel</a><a class="btn map" href="https://www.google.com/maps/search/AC+Hotel+Iberia+Las+Palmas" target="_blank" rel="noopener">Mapa</a></div></div>
     <div class="block"><h2>🎟️ Reservas con link</h2>
       <div class="btns"><a class="btn book" href="https://supercargrancanaria.es/" target="_blank" rel="noopener">🏁 Supercar</a><a class="btn book" href="https://www.elchurrascorestaurante.com/reservas/" target="_blank" rel="noopener">🍽️ El Churrasco</a><a class="btn book" href="https://tickets.holidayworldmaspalomas.com/" target="_blank" rel="noopener">🎢 Entradas Holiday World</a><a class="btn book" href="https://www.bullhotels.com/spa/" target="_blank" rel="noopener">💆🏻 Info spa</a><a class="btn book" href="https://clubcanary.com/gran-canaria-multiacuatic-catamaran/" target="_blank" rel="noopener">🐬 Catamarán</a></div>
       <p class="note">Holiday World abre <b>solo de tarde-noche</b> (16:00–23:30 los sábados).</p></div>
     <div class="block"><h2>📞 Contactos rápidos</h2>
-      <div class="btns"><a class="btn call" href="tel:+34672447920">🏎️ Chris (Supercar)</a><a class="btn wa" href="https://wa.me/34672447920" target="_blank" rel="noopener">💬 WhatsApp Chris</a><a class="btn call" href="tel:+34928563101">📞 Circuito</a></div>
+      <div class="btns"><a class="btn call" href="tel:+34672447920">Chris (Supercar)</a><a class="btn wa" href="https://wa.me/34672447920" target="_blank" rel="noopener">💬 WhatsApp Chris</a><a class="btn call" href="tel:+34928563101">Circuito</a></div>
       <p class="note">El <b>928 563 101</b> es del Circuito de Maspalomas (L-V 9-18h) para confirmar si admiten <b>la bestia</b> a tanda.</p></div>
     <div class="block"><h2>✅ Reservas pendientes</h2>
       <label class="check"><input type="checkbox" data-k="r1"><span>Confirmar vuelta con la bestia (Chris / Circuito)</span></label>
@@ -333,72 +492,72 @@
       <label class="check"><input type="checkbox" data-k="m5"><span>Confirmar seguro de pista (el de calle no cubre)</span></label></div>
   </section>
 
-</div>
+</main>
 
 <div class="install" id="install" aria-live="polite"><span class="ix" aria-hidden="true">📲</span><div class="it"><b>Instálala como app</b><br><span id="installtxt">Pantalla completa, sin barra del navegador.</span></div><button id="installbtn" type="button">Instalar</button><button class="close" id="installclose" type="button" aria-label="Cerrar aviso de instalación">✕</button></div>
-<div class="ftr">Hecho con cariño para <b>Diego &amp; Darimar</b> 🎂🏎️🌴<br>Gran Canaria · 19-21 junio 2026</div>
+<footer class="ftr">Hecho con cariño para <b>Diego &amp; Darimar</b> 🎂🏎️🌴<br>Gran Canaria · 19-21 junio 2026</footer>
 
 <script>
-  const tabs=[...document.querySelectorAll('.tab')], panels=[...document.querySelectorAll('.panel')];
-  const prefersReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function cssPhotoUrl(src){
-    return `url("${String(src).replace(/\\/g,'\\\\').replace(/"/g,'\\"')}")`;
-  }
-  function setPhotoBg(frame,img){
-    const src=img.currentSrc||img.src||img.getAttribute('src');
+  document.documentElement.classList.add('js');
+  const $=(s,c)=>(c||document).querySelector(s), $$=(s,c)=>[...(c||document).querySelectorAll(s)];
+  const mq=matchMedia('(prefers-reduced-motion: reduce)');
+  const store={
+    get(k){try{return localStorage.getItem(k)}catch(_){return null}},
+    set(k,v){try{localStorage.setItem(k,v)}catch(_){}}
+  };
+
+  // ===== Fondos difuminados de las fotos =====
+  function setBg(frame,img){
+    const src=img.currentSrc||img.src;
     if(!src)return;
-    frame.style.setProperty('--photo-bg',cssPhotoUrl(src));
+    frame.style.setProperty('--photo-bg',`url("${src.replace(/\\/g,'\\\\').replace(/"/g,'\\"')}")`);
     frame.classList.add('has-blur-bg');
   }
-  function setupPhotoFrames(){
-    document.querySelectorAll('img.ph').forEach(img=>{
-      let frame=img.closest('.photo-frame,.phwrap,.shinewrap');
-      if(!frame){
-        frame=document.createElement('div');
-        frame.className='photo-frame';
-        img.before(frame);
-        frame.appendChild(img);
-      }else{
-        frame.classList.add('photo-frame');
-      }
-      ['fit-square','race','heart-frame','sun-frame','spa-frame','wave-frame'].forEach(c=>{if(img.classList.contains(c))frame.classList.add(c);});
-      setPhotoBg(frame,img);
-      img.addEventListener('load',()=>setPhotoBg(frame,img));
-    });
-    document.querySelectorAll('.coupleframe>.couple').forEach(img=>{
-      const frame=img.closest('.coupleframe');
-      setPhotoBg(frame,img);
-      img.addEventListener('load',()=>setPhotoBg(frame,img));
-    });
+  $$('.photo,.hero-photo').forEach(f=>{
+    const img=$('img',f);
+    if(!img)return;
+    setBg(f,img);
+    img.addEventListener('load',()=>setBg(f,img));
+  });
+
+  // ===== Tabs (control segmentado con indicador deslizante) =====
+  const seg=$('#seg'), hl=$('#seghl'), tabs=$$('.tab');
+  function moveHl(){
+    const a=tabs.find(t=>t.getAttribute('aria-selected')==='true');
+    if(!a)return;
+    const r=a.getBoundingClientRect(), s=seg.getBoundingClientRect();
+    hl.style.width=r.width+'px';
+    hl.style.transform=`translateX(${r.left-s.left-seg.clientLeft}px)`;
   }
-  function warmPanelImages(panel){
-    panel.querySelectorAll('img[loading="lazy"]').forEach(img=>{img.loading='eager';if(!img.currentSrc)img.src=img.getAttribute('src');});
+  function warm(p){
+    $$('img[loading="lazy"]',p).forEach(img=>{img.loading='eager';if(!img.currentSrc)img.src=img.getAttribute('src');});
   }
   function animatePanel(p){
-    const events=[...p.querySelectorAll('.ev')];
-    if(prefersReduced){events.forEach(ev=>ev.classList.remove('reveal','in'));return;}
-    events.forEach((ev,i)=>{ev.classList.add('reveal');ev.classList.remove('in');setTimeout(()=>ev.classList.add('in'),30+i*45);});
-  }
-  function showPanel(tab,{focus=false,scroll=true}={}){
-    tabs.forEach(t=>{
-      const active=t===tab, panel=document.getElementById(t.dataset.p);
-      t.classList.toggle('active',active);
-      t.setAttribute('aria-selected',String(active));
-      t.tabIndex=active?0:-1;
-      panel.classList.toggle('active',active);
-      panel.hidden=!active;
-      if(active){warmPanelImages(panel);animatePanel(panel);}
+    const evs=$$('.ev',p);
+    if(mq.matches){evs.forEach(e=>e.classList.remove('reveal','in'));return;}
+    evs.forEach((e,i)=>{
+      e.classList.add('reveal');e.classList.remove('in');
+      setTimeout(()=>e.classList.add('in'),30+Math.min(i*40,320));
     });
+    // Limpieza: pasada la animación, las tarjetas no dependen de las clases.
+    setTimeout(()=>evs.forEach(e=>e.classList.remove('reveal','in')),900+Math.min(evs.length*40,320));
+  }
+  function show(tab,{focus=false,scroll=true}={}){
+    tabs.forEach(t=>{
+      const on=t===tab, p=document.getElementById(t.dataset.p);
+      t.setAttribute('aria-selected',String(on));
+      t.tabIndex=on?0:-1;
+      p.hidden=!on;
+      p.classList.toggle('active',on);
+      if(on){warm(p);animatePanel(p);}
+    });
+    moveHl();
     if(focus)tab.focus({preventScroll:true});
-    tab.scrollIntoView({block:'nearest',inline:'center',behavior:'auto'});
-    if(scroll)window.scrollTo({top:0,behavior:prefersReduced?'auto':'smooth'});
+    if(scroll)window.scrollTo({top:0,behavior:mq.matches?'auto':'smooth'});
   }
   tabs.forEach((t,i)=>{
-    const active=t.classList.contains('active');
-    t.setAttribute('aria-selected',String(active));
-    t.tabIndex=active?0:-1;
-    document.getElementById(t.dataset.p).hidden=!active;
-    t.addEventListener('click',()=>showPanel(t));
+    t.tabIndex=t.getAttribute('aria-selected')==='true'?0:-1;
+    t.addEventListener('click',()=>show(t));
     t.addEventListener('keydown',e=>{
       const keys=['ArrowRight','ArrowLeft','Home','End'];
       if(!keys.includes(e.key))return;
@@ -408,61 +567,143 @@
       if(e.key==='ArrowLeft')next=(i-1+tabs.length)%tabs.length;
       if(e.key==='Home')next=0;
       if(e.key==='End')next=tabs.length-1;
-      showPanel(tabs[next],{focus:true});
+      show(tabs[next],{focus:true});
     });
   });
-  (function(){
-    const target=new Date('2026-06-19T10:00:00'), d=Math.ceil((target-new Date())/(864e5));
-    const el=document.getElementById('cd'), count=document.getElementById('count');
-    if(d>1)el.textContent=d;
-    else if(d===1)el.textContent='1';
-    else{count.innerHTML='🎉 ¡A disfrutar el cumple!';count.setAttribute('aria-label','Lanzar confeti de celebración');}
-  })();
-  document.querySelectorAll('.check input').forEach(cb=>{const key='gctrip_'+cb.dataset.k;if(localStorage.getItem(key)==='1')cb.checked=true;cb.addEventListener('change',()=>localStorage.setItem(key,cb.checked?'1':'0'));});
-  // ===== GASTOS EN CADA TARJETA =====
+  addEventListener('resize',moveHl);
+  if('ResizeObserver' in window)new ResizeObserver(moveHl).observe(seg);
+  moveHl();
+  requestAnimationFrame(()=>{moveHl();hl.classList.add('ready');});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(moveHl);
+
+  // ===== Barra pegajosa: hueco para la barra de estado del iPhone =====
+  const nav=$('#nav');
+  const sentinel=document.createElement('div');
+  sentinel.style.cssText='height:1px;margin-top:-1px';
+  nav.before(sentinel);
+  new IntersectionObserver(([e])=>nav.classList.toggle('stuck',!e.isIntersecting)).observe(sentinel);
+
+  // ===== Cuenta atrás =====
+  const countBtn=$('#count');
+  function updateCountdown(){
+    const start=new Date('2026-06-19T10:00:00'), end=new Date('2026-06-21T23:59:59'), now=new Date();
+    if(now>=start&&now<=end){countBtn.innerHTML='🎉 ¡Modo cumple activado!';return;}
+    if(now>end){countBtn.innerHTML='🏁 Qué finde más grande';return;}
+    if(now.getFullYear()===2026&&now.getMonth()===5&&now.getDate()===19){countBtn.innerHTML='🎉 ¡Es hoy! Ferry a las 10:00';return;}
+    const d=Math.ceil((start-now)/864e5);
+    countBtn.innerHTML=d===1?'⏳ Falta <b>1</b> día':`⏳ Faltan <b>${d}</b> días`;
+  }
+  updateCountdown();
+  addEventListener('visibilitychange',()=>{if(!document.hidden)updateCountdown();});
+  addEventListener('pageshow',updateCountdown);
+
+  // ===== Checklists =====
+  $$('.check input').forEach(cb=>{
+    const key='gctrip_'+cb.dataset.k;
+    if(store.get(key)==='1')cb.checked=true;
+    cb.addEventListener('change',()=>store.set(key,cb.checked?'1':'0'));
+  });
+
+  // ===== Gastos =====
   const fmt=n=>n.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
   function moneyNumber(raw){
-    const clean=String(raw||'').trim().replace(',','.');
+    const clean=String(raw||'').trim();
     if(!clean)return 0;
-    return Number(clean);
+    if(!/^\d+([.,]\d{1,2})?$/.test(clean))return NaN;
+    return Number(clean.replace(',','.'));
   }
   function parseMoney(raw){
     const n=moneyNumber(raw);
     return Number.isFinite(n)&&n>0?n:0;
   }
-  const gin=document.querySelectorAll('.gline input');
+  const gin=$$('.gline input');
   function renderG(){
     const days={'Viernes':0,'Sábado':0,'Domingo':0}; const items=[]; let total=0;
-    gin.forEach(inp=>{const v=parseMoney(inp.value); if(v>0){const d=inp.dataset.day; days[d]=(days[d]||0)+v; total+=v; items.push({l:inp.dataset.label,d:d,v:v});}});
-    const list=document.getElementById('g-list'), tot=document.getElementById('g-totals');
-    list.setAttribute('aria-live','polite'); tot.setAttribute('aria-live','polite');
-    list.innerHTML = items.length ? items.map(x=>`<div class="gitem"><div class="gc">${x.l}<small>${x.d}</small></div><div class="gm">${fmt(x.v)}</div></div>`).join('')
+    gin.forEach(inp=>{
+      const v=parseMoney(inp.value);
+      if(v>0){const d=inp.dataset.day; days[d]=(days[d]||0)+v; total+=v; items.push({l:inp.dataset.label,d:d,v:v});}
+    });
+    $('#g-list').innerHTML = items.length
+      ? items.map(x=>`<div class="gitem"><div class="gc">${x.l}<small>${x.d}</small></div><div class="gm">${fmt(x.v)}</div></div>`).join('')
       : '<div class="gempty">Apunten el gasto en cada tarjeta del itinerario y aquí se suma solo. 😄</div>';
-    let h='';['Viernes','Sábado','Domingo'].forEach(d=>{if(days[d]>0)h+=`<div class="gtotal"><span>${d}</span><span class="v">${fmt(days[d])}</span></div>`;});
-    h+=`<div class="gtotal big"><span>Total del viaje</span><span class="v">${fmt(total)}</span></div>`; tot.innerHTML=h;
+    let h='';
+    ['Viernes','Sábado','Domingo'].forEach(d=>{if(days[d]>0)h+=`<div class="gtotal"><span>${d}</span><span class="v">${fmt(days[d])}</span></div>`;});
+    h+=`<div class="gtotal big"><span>Total del viaje</span><span class="v">${fmt(total)}</span></div>`;
+    $('#g-totals').innerHTML=h;
   }
-  gin.forEach((inp,i)=>{
-    const key='gctrip_g_'+inp.dataset.g, label=inp.closest('.gline')?.querySelector('label'), id='gasto-'+(inp.dataset.g||i);
-    inp.type='text'; inp.autocomplete='off'; inp.pattern='[0-9]+([,.][0-9]{1,2})?';
-    inp.id=id; inp.setAttribute('aria-label','Gasto: '+(inp.dataset.label||'actividad'));
-    if(label)label.htmlFor=id;
-    const v=localStorage.getItem(key); if(v)inp.value=v;
-    inp.addEventListener('input',()=>{const n=moneyNumber(inp.value);inp.setAttribute('aria-invalid',String(inp.value.trim()!==''&&(!Number.isFinite(n)||n<0)));localStorage.setItem(key,inp.value);renderG();});
-    inp.addEventListener('blur',()=>{const n=moneyNumber(inp.value);if(inp.value.trim()!==''&&!Number.isFinite(n))inp.value='';else if(Number.isFinite(n)&&n<0)inp.value='0';inp.setAttribute('aria-invalid','false');localStorage.setItem(key,inp.value);renderG();});
+  gin.forEach(inp=>{
+    const key='gctrip_g_'+inp.dataset.g;
+    const v=store.get(key);
+    if(v)inp.value=v;
+    function validate(){
+      const n=moneyNumber(inp.value);
+      inp.setAttribute('aria-invalid',String(inp.value.trim()!==''&&!Number.isFinite(n)));
+      store.set(key,inp.value);
+      renderG();
+    }
+    inp.addEventListener('input',validate);
+    inp.addEventListener('blur',validate);
   });
   renderG();
-  // confeti
-  function confetti(n){if(prefersReduced)return;const e=['🎉','🎂','🏎️','☀️','🌴','❤️','🏁','🐬'];for(let i=0;i<(n||20);i++){const s=document.createElement('div');s.className='confetti';s.textContent=e[Math.floor(Math.random()*e.length)];s.style.left=Math.random()*100+'vw';s.style.fontSize=(15+Math.random()*14)+'px';s.style.animationDuration=(2.2+Math.random()*1.2)+'s';s.style.animationDelay=(Math.random()*.35)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),3600);}}
-  document.getElementById('count').addEventListener('click',()=>confetti(22));
-  // PWA
-  let deferred=null;const banner=document.getElementById('install');const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
-  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone)banner.classList.add('show');});
-  document.getElementById('installbtn').addEventListener('click',async()=>{if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');}});
-  document.getElementById('installclose').addEventListener('click',()=>{banner.classList.remove('show');localStorage.setItem('gctrip_noinstall','1');});
-  if(isIOS&&!standalone&&localStorage.getItem('gctrip_noinstall')!=='1'){document.getElementById('installbtn').style.display='none';document.getElementById('installtxt').innerHTML='Pulsa <b>Compartir</b> ▵ y "Añadir a pantalla de inicio".';banner.classList.add('show');}
-  setupPhotoFrames();
-  warmPanelImages(document.querySelector('.panel.active'));
-  animatePanel(document.querySelector('.panel.active'));
+
+  // ===== Confeti =====
+  function confetti(n){
+    if(mq.matches)return;
+    const e=['🎉','🎂','🏎️','☀️','🌴','❤️','🏁','🐬'];
+    for(let i=0;i<(n||20);i++){
+      const s=document.createElement('div');
+      s.className='confetti';
+      s.setAttribute('aria-hidden','true');
+      s.textContent=e[Math.floor(Math.random()*e.length)];
+      s.style.left=Math.random()*100+'vw';
+      s.style.fontSize=(15+Math.random()*14)+'px';
+      s.style.animationDuration=(2.2+Math.random()*1.2)+'s';
+      s.style.animationDelay=(Math.random()*.35)+'s';
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(),3600);
+    }
+  }
+  countBtn.addEventListener('click',()=>confetti(22));
+
+  // ===== Parallax sutil del hero =====
+  const heroPhoto=$('#heroPhoto');
+  if(heroPhoto){
+    let ticking=false;
+    addEventListener('scroll',()=>{
+      if(ticking)return;
+      ticking=true;
+      requestAnimationFrame(()=>{
+        if(mq.matches){heroPhoto.style.transform='';ticking=false;return;}
+        const y=window.scrollY;
+        heroPhoto.style.transform=y>0&&y<600?`translateY(${y*.1}px)`:'';
+        ticking=false;
+      });
+    },{passive:true});
+  }
+
+  // ===== Animación inicial del panel visible =====
+  warm($('.panel.active'));
+  animatePanel($('.panel.active'));
+
+  // ===== PWA: instalación + service worker =====
+  let deferred=null;
+  const banner=$('#install');
+  const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const standalone=matchMedia('(display-mode: standalone)').matches||window.navigator.standalone;
+  addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferred=e;
+    if(!standalone&&store.get('gctrip_noinstall')!=='1')banner.classList.add('show');
+  });
+  $('#installbtn').addEventListener('click',async()=>{
+    if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;banner.classList.remove('show');}
+  });
+  $('#installclose').addEventListener('click',()=>{banner.classList.remove('show');store.set('gctrip_noinstall','1');});
+  if(isIOS&&!standalone&&store.get('gctrip_noinstall')!=='1'){
+    $('#installbtn').style.display='none';
+    $('#installtxt').innerHTML='Pulsa <b>Compartir</b> ▵ y "Añadir a pantalla de inicio".';
+    banner.classList.add('show');
+  }
   if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
 </script>
 </body>
